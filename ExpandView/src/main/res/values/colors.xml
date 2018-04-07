@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBackgroundDark">#262626</color>
+    <color name="color43">#434343</color>
+    <color name="colorGray">#cccccc</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorMyDashBlue">#f1f7fA</color>
+    <color name="colorMyDashBorder">#005d93</color>
+    <color name="colorTransparent">#00000000</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="transparent_gray">#4C000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="black_1">#031C22</color>
+    <color name="red_1">#e53a3a</color>
+    <color name="red_2">#ef6c00</color>
+
+    <color name="brown_1">#593a05</color>
+
+    <color name="blue_1">#28b2d0</color>
+    <color name="blue_2">#005d93</color>
+
+    <color name="gray_01">#010101</color>
+    <color name="gray_fa">#fafafa</color>
+    <color name="gray_1a">#1a1a1a</color>
+    <color name="gray_66">#666666</color>
+    <color name="gray_b3">#b3b3b3</color>
+    <color name="gray_4d">#4d4d4d</color>
+    <color name="gray_cc">#cccccc</color>
+    <color name="gray_d9">#d9d9d9</color>
+    <color name="gray_26">#262626</color>
+    <color name="gray_80">#808080</color>
+    <color name="gray_db">#dbdbdb</color>
+    <color name="gray_f2">#f2f2f2</color>
+    <color name="gray_f5">#f5f5f5</color>
+    <color name="gray_bf">#bfbfbf</color>
+
+    <color name="gray_1">#f5f6f9</color>
+    <color name="gray_2">#80808080</color>
+    <color name="gray_3">#801a1a1a</color>
+
+    <!-- QRCode scanner color begin -->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#B0000000</color>
+    <color name="viewfinder_frame">#90FFFFFF</color>
+    <color name="result_point_color">#C0FFFF00</color>
+    <color name="laser_color">#0F0</color>
+    <color name="corner_color">#00FF00</color>
+    <!-- QRCode scanner color end -->
+</resources>
