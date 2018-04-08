@@ -2,4 +2,6 @@
     <string name="app_name">CustomView</string>
     <string name="expand">Expand</string>
     <string name="collapse">Collapse</string>
+    <string name="image_edit">Image Edit</string>
+    <string name="choose_images">choose a image</string>
 </resources>

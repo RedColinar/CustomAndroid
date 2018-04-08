@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.widgets.ExpandActivity;
+import com.example.harry.customandroid.activities.widgets.Expand.ExpandActivity;
+import com.example.harry.customandroid.activities.widgets.ImageEdit.ImageEditActivity;
 
 /**
  * CustomAndroid
@@ -30,6 +31,7 @@ public class WidgetsFragment extends BaseFragment implements View.OnClickListene
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setClick(view, R.id.main_widget_expand);
+        setClick(view, R.id.main_widget_image_edit);
     }
 
     @Override
@@ -37,6 +39,9 @@ public class WidgetsFragment extends BaseFragment implements View.OnClickListene
         switch (view.getId()) {
             case R.id.main_widget_expand:
                 ExpandActivity.start(context);
+                break;
+            case R.id.main_widget_image_edit:
+                ImageEditActivity.start(context);
                 break;
         }
     }
