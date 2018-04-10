@@ -8,4 +8,6 @@
 
     <string name="expand_title">ExpandView</string>
     <string name="expand_text">Android Studio 中包含一个名为 Image Asset Studio 的工具，\n此工具可以帮助您从 Material 图标、自定义图像和文本字符串\n生成自己的应用图标。它可以为您的应用支持的每个通用屏幕密度生成一组具有相应分辨率的图标。\nImage Asset Studio 会将新生成的图标放置在项目中 res/ 目录下的密度特定的文件夹中。\n运行时，Android 将根据您的应用运行所在设备的屏幕密度使用相应资源。</string>
+    <string name="clear_edit_text_title">Clear EditText</string>
+    <string name="clear_edit_text">ClearEditText</string>
 </resources>

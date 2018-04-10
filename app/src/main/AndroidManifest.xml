@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".activities.widgets.Expand.ExpandActivity" />
         <activity android:name=".activities.widgets.ImageEdit.ImageEditActivity" />
+        <activity android:name=".activities.widgets.ClearEditText.ClearEditTextActivity" />
     </application>
 
 </manifest>

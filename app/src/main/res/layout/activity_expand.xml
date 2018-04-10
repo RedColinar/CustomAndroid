@@ -8,17 +8,10 @@
         android:id="@+id/expand_toolbar"
         app:navigationIcon="@drawable/ic_action_back"
         android:background="@color/colorPrimary"
+        app:title="@string/expand_title"
+        app:titleTextColor="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            style="@style/ToolbarTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/expand_title" />
-
-    </android.support.v7.widget.Toolbar>
+        android:layout_height="wrap_content" />
 
     <com.example.expandview.ExpandView
         android:id="@+id/expand_text"

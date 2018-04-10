@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ClearEditText">
+        <attr name="ic_delete" format="reference" />
+        <attr name="ic_left" format="reference" />
+        <attr name="line_color_click" format="color"  />
+        <attr name="line_color_unclick" format="color"  />
+        <attr name="line_padding_bottom" format="integer"  />
+        <attr name="has_bottom_line" format="boolean" />
+    </declare-styleable>
+</resources>

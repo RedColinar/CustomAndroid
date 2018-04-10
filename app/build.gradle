@@ -34,4 +34,5 @@ dependencies {
     implementation project(':BottomBar')
     implementation project(':ExpandView')
     implementation project(':image')
+    implementation project(':ClearEditText')
 }

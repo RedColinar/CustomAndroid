@@ -16,23 +16,25 @@
 
             <Button
                 android:id="@+id/main_widget_expand"
-                android:text="@string/expand"
+                style="@style/main_widget_button"
                 android:drawableTop="@drawable/ic_widget_expand"
-                style="@style/main_widget_button" />
+                android:text="@string/expand" />
 
             <Button
                 android:id="@+id/main_widget_image_edit"
-                android:text="@string/image_edit"
-                android:drawableTop="@drawable/ic_widget_expand"
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_image_edit"
+                android:text="@string/image_edit" />
+
+            <Button
+                android:id="@+id/main_widget_clear_edit_text"
+                android:text="@string/clear_edit_text_title"
+                android:drawableTop="@drawable/ic_clear_edit_text"
                 style="@style/main_widget_button" />
 
             <Button
-                android:drawableTop="@drawable/ic_widget_expand"
-                style="@style/main_widget_button" />
-
-            <Button
-                android:drawableTop="@drawable/ic_widget_expand"
-                style="@style/main_widget_button" />
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand" />
 
         </LinearLayout>
 
