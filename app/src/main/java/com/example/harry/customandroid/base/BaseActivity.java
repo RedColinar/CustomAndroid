@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.activities;
+package com.example.harry.customandroid.base;
 
 import android.content.Intent;
 import android.os.Bundle;

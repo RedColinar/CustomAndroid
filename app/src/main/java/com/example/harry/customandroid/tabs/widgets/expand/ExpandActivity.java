@@ -1,18 +1,15 @@
-package com.example.harry.customandroid.activities.widgets.expand;
+package com.example.harry.customandroid.tabs.widgets.expand;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.expandview.ExpandView;
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.BaseActivity;
-import com.example.harry.customandroid.activities.widgets.expand.ExpandAdapter.LegendItem;
+import com.example.harry.customandroid.base.BaseActivity;
+import com.example.harry.customandroid.tabs.widgets.expand.ExpandAdapter.LegendItem;
 
 import java.util.ArrayList;
 import java.util.List;

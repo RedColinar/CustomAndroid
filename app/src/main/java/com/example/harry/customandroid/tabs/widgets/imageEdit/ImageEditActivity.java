@@ -1,14 +1,13 @@
-package com.example.harry.customandroid.activities.widgets.imageEdit;
+package com.example.harry.customandroid.tabs.widgets.imageEdit;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.BaseActivity;
+import com.example.harry.customandroid.base.BaseActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.io.File;

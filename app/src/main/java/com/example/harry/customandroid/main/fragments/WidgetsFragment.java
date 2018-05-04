@@ -1,11 +1,12 @@
-package com.example.harry.customandroid.activities.main.fragments;
+package com.example.harry.customandroid.main.fragments;
 
 import android.view.View;
 
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.widgets.clearEditText.ClearEditTextActivity;
-import com.example.harry.customandroid.activities.widgets.expand.ExpandActivity;
-import com.example.harry.customandroid.activities.widgets.imageEdit.ImageEditActivity;
+import com.example.harry.customandroid.tabs.widgets.clearEditText.ClearEditTextActivity;
+import com.example.harry.customandroid.tabs.widgets.expand.ExpandActivity;
+import com.example.harry.customandroid.tabs.widgets.imageEdit.ImageEditActivity;
+import com.example.harry.customandroid.base.BaseFragment;
 
 import butterknife.OnClick;
 

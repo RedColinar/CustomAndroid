@@ -1,13 +1,7 @@
-package com.example.harry.customandroid.activities.widgets.clearEditText;
-
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
+package com.example.harry.customandroid.tabs.widgets.clearEditText;
 
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.BaseActivity;
+import com.example.harry.customandroid.base.BaseActivity;
 
 /**
  * CustomAndroid

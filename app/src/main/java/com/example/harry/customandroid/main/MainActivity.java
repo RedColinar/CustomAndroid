@@ -1,12 +1,12 @@
-package com.example.harry.customandroid.activities.main;
+package com.example.harry.customandroid.main;
 
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
 import com.example.bottombar.GradientTabStrip;
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.BaseActivity;
-import com.example.harry.customandroid.activities.main.adapters.MainAdapter;
+import com.example.harry.customandroid.base.BaseActivity;
+import com.example.harry.customandroid.main.adapters.MainAdapter;
 
 public class MainActivity extends BaseActivity {
 

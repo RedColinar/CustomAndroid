@@ -1,9 +1,10 @@
-package com.example.harry.customandroid.activities.main.fragments;
+package com.example.harry.customandroid.main.fragments;
 
 import android.view.View;
 
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.develop.alarm.AlarmActivity;
+import com.example.harry.customandroid.tabs.develop.alarm.AlarmActivity;
+import com.example.harry.customandroid.base.BaseFragment;
 
 import butterknife.OnClick;
 

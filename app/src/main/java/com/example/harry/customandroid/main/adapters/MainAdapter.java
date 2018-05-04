@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.activities.main.adapters;
+package com.example.harry.customandroid.main.adapters;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -8,8 +8,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.bottombar.GradientTabStrip;
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.main.fragments.DevelopFragment;
-import com.example.harry.customandroid.activities.main.fragments.WidgetsFragment;
+import com.example.harry.customandroid.main.fragments.DevelopFragment;
+import com.example.harry.customandroid.main.fragments.WidgetsFragment;
 
 /**
  * CustomAndroid

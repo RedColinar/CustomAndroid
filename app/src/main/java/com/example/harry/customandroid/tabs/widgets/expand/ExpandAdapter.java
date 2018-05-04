@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.activities.widgets.expand;
+package com.example.harry.customandroid.tabs.widgets.expand;
 
 import android.content.Context;
 import android.graphics.Color;

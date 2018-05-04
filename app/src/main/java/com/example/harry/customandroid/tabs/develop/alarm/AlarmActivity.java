@@ -1,9 +1,9 @@
-package com.example.harry.customandroid.activities.develop.alarm;
+package com.example.harry.customandroid.tabs.develop.alarm;
 
 import android.view.View;
 
 import com.example.harry.customandroid.R;
-import com.example.harry.customandroid.activities.BaseActivity;
+import com.example.harry.customandroid.base.BaseActivity;
 
 import butterknife.OnClick;
 
