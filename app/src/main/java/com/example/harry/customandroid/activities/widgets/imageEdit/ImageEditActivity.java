@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.activities.widgets.ImageEdit;
+package com.example.harry.customandroid.activities.widgets.imageEdit;
 
 import android.app.Activity;
 import android.content.Context;
@@ -35,9 +35,18 @@ public class ImageEditActivity extends BaseActivity {
     private File mImage;
 
     @Override
+    public int getLayoutId() {
+        return R.layout.activity_image_edit;
+    }
+
+    @Override
+    public int getTitleId() {
+        return R.string.image_edit_title;
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_edit);
 
         imageOrigin = findViewById(R.id.sdv_image);
         imageEdit = findViewById(R.id.sdv_image_edit);

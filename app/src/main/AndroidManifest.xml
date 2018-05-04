@@ -15,13 +15,14 @@
         <activity android:name="com.example.harry.customandroid.activities.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.widgets.Expand.ExpandActivity" />
-        <activity android:name=".activities.widgets.ImageEdit.ImageEditActivity" />
-        <activity android:name=".activities.widgets.ClearEditText.ClearEditTextActivity" />
+        <activity android:name=".activities.widgets.expand.ExpandActivity" />
+        <activity android:name=".activities.widgets.imageEdit.ImageEditActivity" />
+        <activity android:name=".activities.widgets.clearEditText.ClearEditTextActivity" />
+
+        <activity android:name=".activities.develop.alarm.AlarmActivity" />
     </application>
 
 </manifest>

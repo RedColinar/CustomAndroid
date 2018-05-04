@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.activities.widgets.Expand;
+package com.example.harry.customandroid.activities.widgets.expand;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +12,12 @@ import android.support.v7.widget.RecyclerView;
 import com.example.expandview.ExpandView;
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.activities.BaseActivity;
-import com.example.harry.customandroid.activities.widgets.adapters.ExpandAdapter;
-import com.example.harry.customandroid.activities.widgets.adapters.ExpandAdapter.LegendItem;
+import com.example.harry.customandroid.activities.widgets.expand.ExpandAdapter.LegendItem;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
 
 /**
  * ExpandActivity
@@ -34,17 +35,19 @@ public class ExpandActivity extends BaseActivity {
         legends.add(new LegendItem("50%", "#2E2EFF", "BLUE"));
     }
 
+    @BindView(R.id.expand_text)
     ExpandView expandTextView;
+    @BindView(R.id.expand_recycler_view)
     ExpandView expandRecyclerView;
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_expand;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_expand);
-        initToolBar();
-
-        expandTextView = findViewById(R.id.expand_text);
-        expandRecyclerView = findViewById(R.id.expand_recycler_view);
 
         TextView textView = new TextView(this);
         textView.setText(R.string.expand_text);
@@ -65,13 +68,13 @@ public class ExpandActivity extends BaseActivity {
         return recyclerView;
     }
 
-    private void initToolBar() {
-        Toolbar toolbar = findViewById(R.id.expand_toolbar);
-        toolbar.setNavigationOnClickListener(v -> this.finish());
-    }
-
     public static void start(Context context) {
         Intent starter = new Intent(context, ExpandActivity.class);
         context.startActivity(starter);
+    }
+
+    @Override
+    public int getTitleId() {
+        return R.string.expand_title;
     }
 }

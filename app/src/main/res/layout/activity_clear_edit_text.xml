@@ -4,14 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        app:navigationIcon="@drawable/ic_action_back"
-        android:background="@color/colorPrimary"
-        app:title="@string/clear_edit_text"
-        app:titleTextColor="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <include android:id="@id/toolbar" layout="@layout/custom_toolbar" />
 
     <com.example.clearedittext.ClearEditText
         android:id="@+id/first_edit_text"

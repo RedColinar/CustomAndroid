@@ -4,4 +4,5 @@
     <string name="collapse">Collapse</string>
     <string name="image_edit">Image Edit</string>
     <string name="choose_images">choose a image</string>
+    <string name="alarm">定时</string>
 </resources>

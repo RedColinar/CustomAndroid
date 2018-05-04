@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.bottombar.GradientTabStrip;
 import com.example.harry.customandroid.R;
+import com.example.harry.customandroid.activities.main.fragments.DevelopFragment;
 import com.example.harry.customandroid.activities.main.fragments.WidgetsFragment;
 
 /**
@@ -29,11 +30,11 @@ public class MainAdapter extends FragmentPagerAdapter implements GradientTabStri
         switch (position) {
             default:
             case 0:
-                return WidgetsFragment.newInstance();
+                return DevelopFragment.newInstance();
             case 1:
                 return WidgetsFragment.newInstance();
             case 2:
-                return WidgetsFragment.newInstance();
+                return DevelopFragment.newInstance();
             case 3:
                 return WidgetsFragment.newInstance();
         }

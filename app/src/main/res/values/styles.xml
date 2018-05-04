@@ -1,10 +1,4 @@
 <resources>
-    <style name="ToolbarTitle">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">@dimen/textSize_Toolbar</item>
-        <item name="android:singleLine">true</item>
-    </style>
-
     <style name="main_widget_button">
         <item name="android:background">@drawable/bg_common_press</item>
         <item name="android:drawablePadding">4dp</item>
@@ -14,5 +8,4 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
     </style>
-
 </resources>

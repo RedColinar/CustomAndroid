@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.activities.widgets.ClearEditText;
+package com.example.harry.customandroid.activities.widgets.clearEditText;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,15 +17,13 @@ import com.example.harry.customandroid.activities.BaseActivity;
 public class ClearEditTextActivity extends BaseActivity {
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clear_edit_text);
-        initToolBar();
+    public int getLayoutId() {
+        return R.layout.activity_clear_edit_text;
     }
 
-    private void initToolBar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationOnClickListener(v -> this.finish());
+    @Override
+    public int getTitleId() {
+        return R.string.clear_edit_text;
     }
 
     public static void start(Context context) {

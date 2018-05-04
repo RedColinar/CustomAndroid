@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.activities.widgets.adapters;
+package com.example.harry.customandroid.activities.widgets.expand;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -30,7 +30,7 @@ public class ExpandAdapter extends RecyclerView.Adapter<ExpandAdapter.LegendsVie
     @Override
     public LegendsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.legend_recyclerview_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_item_legend, parent, false);
         return new LegendsViewHolder(view);
     }
 
