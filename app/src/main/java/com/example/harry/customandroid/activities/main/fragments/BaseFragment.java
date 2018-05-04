@@ -2,6 +2,7 @@ package com.example.harry.customandroid.activities.main.fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -10,6 +11,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.harry.customandroid.activities.develop.alarm.AlarmActivity;
 
 import butterknife.ButterKnife;
 
@@ -42,5 +45,10 @@ public abstract class BaseFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         this.context = null;
+    }
+
+    protected void start(Class<?> cls) {
+        Intent starter = new Intent(context, cls);
+        context.startActivity(starter);
     }
 }

@@ -1,9 +1,5 @@
 package com.example.harry.customandroid.activities.develop.alarm;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.example.harry.customandroid.R;
@@ -20,11 +16,6 @@ public class AlarmActivity extends BaseActivity {
     @Override
     public int getTitleId() {
         return R.string.alarm_title;
-    }
-
-    public static void start(Context context) {
-        Intent starter = new Intent(context, AlarmActivity.class);
-        context.startActivity(starter);
     }
 
     @OnClick({R.id.confirm_alarm, R.id.cancel_alarm})

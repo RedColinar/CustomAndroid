@@ -29,13 +29,13 @@ public class WidgetsFragment extends BaseFragment {
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.main_widget_expand:
-                ExpandActivity.start(context);
+                start(ExpandActivity.class);
                 break;
             case R.id.main_widget_image_edit:
-                ImageEditActivity.start(context);
+                start(ImageEditActivity.class);
                 break;
             case R.id.main_widget_clear_edit_text:
-                ClearEditTextActivity.start(context);
+                start(ClearEditTextActivity.class);
                 break;
         }
     }

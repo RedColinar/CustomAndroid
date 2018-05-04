@@ -22,7 +22,7 @@ public class DevelopFragment extends BaseFragment {
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.main_develop_alarm:
-                AlarmActivity.start(context);
+                start(AlarmActivity.class);
                 break;
         }
     }

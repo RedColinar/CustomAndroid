@@ -68,11 +68,6 @@ public class ExpandActivity extends BaseActivity {
         return recyclerView;
     }
 
-    public static void start(Context context) {
-        Intent starter = new Intent(context, ExpandActivity.class);
-        context.startActivity(starter);
-    }
-
     @Override
     public int getTitleId() {
         return R.string.expand_title;

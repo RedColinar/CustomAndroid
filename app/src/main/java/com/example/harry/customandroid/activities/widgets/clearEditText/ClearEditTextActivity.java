@@ -25,9 +25,4 @@ public class ClearEditTextActivity extends BaseActivity {
     public int getTitleId() {
         return R.string.clear_edit_text;
     }
-
-    public static void start(Context context) {
-        Intent starter = new Intent(context, ClearEditTextActivity.class);
-        context.startActivity(starter);
-    }
 }

@@ -1,5 +1,6 @@
 package com.example.harry.customandroid.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -47,6 +48,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             mToolbar.setNavigationIcon(R.drawable.ic_action_back);
             mToolbar.setNavigationOnClickListener(v -> this.finish());
         }
+    }
+
+    protected void start(Class<?> cls) {
+        Intent starter = new Intent(this, cls);
+        startActivity(starter);
     }
 
     protected boolean hasBackIcon() {

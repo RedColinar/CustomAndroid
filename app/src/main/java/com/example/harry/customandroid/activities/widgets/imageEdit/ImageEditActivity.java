@@ -92,9 +92,4 @@ public class ImageEditActivity extends BaseActivity {
                 }
         }
     }
-
-    public static void start(Context context) {
-        Intent starter = new Intent(context, ImageEditActivity.class);
-        context.startActivity(starter);
-    }
 }
