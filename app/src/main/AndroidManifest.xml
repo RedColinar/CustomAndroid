@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.harry.customandroid">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".Application"
@@ -21,7 +21,6 @@
         <activity android:name=".tabs.widgets.expand.ExpandActivity" />
         <activity android:name=".tabs.widgets.imageEdit.ImageEditActivity" />
         <activity android:name=".tabs.widgets.clearEditText.ClearEditTextActivity" />
-
         <activity android:name=".tabs.develop.alarm.AlarmActivity" />
         <activity android:name=".tabs.develop.timeline.TimelineActivity" />
     </application>
