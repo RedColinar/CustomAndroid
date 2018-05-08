@@ -1,10 +1,11 @@
-package ${packageName};
+package ${packageName}.tabs.${module}.${camelCaseToUnderscore(classToResource(activityClass))};
 
-<#if applicationPackage??>
-import ${applicationPackage}.R;
+<#if packageName??>
+import ${packageName}.R;
 </#if>
+import com.example.harry.customandroid.base.BaseActivity;
 
-public class ${activityClass} extends ${superClass} {
+public class ${activityClass} extends BaseActivity {
     @Override
     public int getLayoutId() {
         return R.layout.${layoutName};
@@ -12,7 +13,7 @@ public class ${activityClass} extends ${superClass} {
 
     @Override
     public int getTitleId() {
-        return R.string.${activityToLayout(activityClass)}_title;
+        return R.string.${camelCaseToUnderscore(classToResource(activityClass))}_title;
     }
 
     @Override

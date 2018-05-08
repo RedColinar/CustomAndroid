@@ -1,3 +1,3 @@
 <resources>
-    <string name="${activityToLayout(activityClass)}_title">${activityToLayout(activityClass)}</string>
+    <string name="${camelCaseToUnderscore(classToResource(activityClass))}_title">${activityTitle}</string>
 </resources>

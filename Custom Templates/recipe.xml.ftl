@@ -7,7 +7,7 @@
             to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
 
 <instantiate from="root/src/app_package/Activity.java.ftl"
-                to="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
+                to="${escapeXmlAttribute(srcOut)}/tabs/${module}/${camelCaseToUnderscore(classToResource(activityClass))}/${activityClass}.java" />
 <instantiate from="root/res/layout/activity.xml.ftl"
                 to="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml" />
 

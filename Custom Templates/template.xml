@@ -1,4 +1,15 @@
 <?xml version="1.0"?>
+<!-- 
+        string camelCaseToUnderscore(string)驼峰命名风格转下划线
+        string escapeXmlAttribute(string)将“< ?”一类的特殊符号转码为xml可用的属性命名，比如Android’s 会变成Android's
+        string escapeXmlText(string)将字符转换为xml可用的字符命名
+        string escapeXmlString(string)同上但Android建议用这个，它会同时支持转换Android的一些特殊字符
+        string extractLetters(string)去标点和空格
+        classToResource(string)不知道怎么解释举个栗子吧输入CatActivity会返回Cat
+        string layoutToActivity(string)嗯activityToLayout的反向操作
+        string slashedPackageName(string)包名转路径比如：com.example.foo转换为com/example/foo.
+        string underscoreToCamelCase(string)下划线转驼峰风格 
+-->
 <template
         format="5"
         revision="6"
@@ -32,9 +43,19 @@
             name="Title"
             type="string"
             constraints="nonempty"
-            default="MainActivity"
+            default="ActionBar标题"
             suggest="${activityClass}"
             help="The name of the activity. For launcher activities, the application title."/>
+
+    <parameter
+        id="module"
+        name="Tab"
+        type="enum"
+        default="develop"
+        help="the tab where your activity is">
+        <option id="develop">develop</option>
+        <option id="widgets">widgets</option>
+    </parameter>
 
     <parameter
             id="packageName"
