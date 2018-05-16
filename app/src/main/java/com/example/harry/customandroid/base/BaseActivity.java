@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.harry.customandroid.R;
 
 import butterknife.ButterKnife;
+import dagger.android.AndroidInjection;
 
 /**
  * CustomAndroid
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
-    protected String TAG = getClass().getSimpleName();
+    protected String TAG = this.getClass().getSimpleName();
 
     public abstract @LayoutRes int getLayoutId();
     public abstract @StringRes int getTitleId();
