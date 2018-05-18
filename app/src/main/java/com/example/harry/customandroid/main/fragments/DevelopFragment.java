@@ -21,7 +21,7 @@ public class DevelopFragment extends BaseFragment {
         activities.put(R.id.main_develop_timeline, TimelineActivity.class);
         activities.put(R.id.main_develop_dagger, DaggerActivity.class);
         activities.put(R.id.main_develop_custom_view, CustomViewActivity.class);
-        activities.put(R.id.main_develop_circleImage, CircleActivity.class)
+        activities.put(R.id.main_develop_circleImage, CircleActivity.class);
     }
 
     public static DevelopFragment newInstance() {
