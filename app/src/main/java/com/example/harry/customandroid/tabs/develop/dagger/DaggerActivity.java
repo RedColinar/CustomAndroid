@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;
@@ -48,10 +49,16 @@ public class DaggerActivity extends BaseActivity {
     }
 
     public void gotoSecond(View view) {
+        Toast.makeText(this,
+                "gotoSecond: ---" + className + "student: " + s1.toString(),
+                Toast.LENGTH_SHORT).show();
         Log.d(TAG, "gotoSecond: ---" + className + "student: " + s1.toString());
     }
 
     public void requestHttp(View view) {
+        Toast.makeText(this,
+                "requestHttp: ---" + className + "student: " + s2.toString(),
+                Toast.LENGTH_SHORT).show();
         Log.d(TAG, "requestHttp: ---" + className + "student: " + s2.toString());
     }
 }

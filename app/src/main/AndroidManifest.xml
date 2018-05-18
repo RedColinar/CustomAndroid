@@ -26,5 +26,6 @@
         <activity android:name=".tabs.develop.timeline.TimelineActivity" />
         <activity android:name=".tabs.develop.circleImage.CircleActivity" />
         <activity android:name=".tabs.develop.dagger.DaggerActivity" />
+        <activity android:name=".tabs.develop.customView.CustomViewActivity" />
     </application>
 </manifest>

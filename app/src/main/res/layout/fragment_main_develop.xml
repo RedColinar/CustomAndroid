@@ -38,6 +38,12 @@
                 android:drawableTop="@drawable/ic_widget_expand"
                 android:text="@string/dagger_title" />
 
+            <Button
+                android:id="@+id/main_develop_custom_view"
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"
+                android:text="@string/custom_view_title" />
+
         </LinearLayout>
 
     </LinearLayout>

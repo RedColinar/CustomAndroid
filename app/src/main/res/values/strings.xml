@@ -16,4 +16,5 @@
     <string name="timeline_title">时间线</string>
     <string name="circle_image_title">圆形图片</string>
     <string name="dagger_title">Dagger Android使用</string>
+    <string name="custom_view_title">自定义View</string>
 </resources>
