@@ -24,6 +24,7 @@
         <activity android:name=".tabs.widgets.clearEditText.ClearEditTextActivity" />
         <activity android:name=".tabs.develop.alarm.AlarmActivity" />
         <activity android:name=".tabs.develop.timeline.TimelineActivity" />
+        <activity android:name=".tabs.develop.circleImage.CircleActivity" />
     </application>
 
 </manifest>

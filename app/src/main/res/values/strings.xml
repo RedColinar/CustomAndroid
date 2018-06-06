@@ -14,4 +14,5 @@
     <string name="alarm">定时</string>
     <string name="image_edit_title">图片编辑</string>
     <string name="timeline_title">时间线</string>
+    <string name="circle_image_title">圆形图片</string>
 </resources>

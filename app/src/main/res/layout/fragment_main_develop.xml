@@ -26,6 +26,12 @@
                 android:drawableTop="@drawable/ic_widget_expand"
                 android:text="@string/timeline_title" />
 
+            <Button
+                android:id="@+id/main_develop_circleImage"
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"
+                android:text="@string/circle_image_title" />
+
         </LinearLayout>
 
     </LinearLayout>
