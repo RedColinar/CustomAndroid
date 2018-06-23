@@ -17,4 +17,5 @@
     <string name="circle_image_title">圆形图片</string>
     <string name="dagger_title">Dagger Android使用</string>
     <string name="custom_view_title">自定义View</string>
+    <string name="xml_parse_title">xml解析</string>
 </resources>

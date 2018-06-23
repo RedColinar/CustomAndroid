@@ -46,6 +46,35 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/main_develop_xml_parse"
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"
+                android:text="@string/xml_parse_title" />
+
+            <Button
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand" />
+
+            <Button
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand" />
+
+            <Button
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"/>
+
+            <Button
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

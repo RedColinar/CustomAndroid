@@ -10,6 +10,7 @@ import com.example.harry.customandroid.tabs.develop.circleImage.CircleActivity;
 import com.example.harry.customandroid.tabs.develop.customView.CustomViewActivity;
 import com.example.harry.customandroid.tabs.develop.dagger.DaggerActivity;
 import com.example.harry.customandroid.tabs.develop.timeline.TimelineActivity;
+import com.example.harry.customandroid.tabs.develop.xmlParse.XmlParseActivity;
 
 import butterknife.OnClick;
 
@@ -22,6 +23,7 @@ public class DevelopFragment extends BaseFragment {
         activities.put(R.id.main_develop_dagger, DaggerActivity.class);
         activities.put(R.id.main_develop_custom_view, CustomViewActivity.class);
         activities.put(R.id.main_develop_circleImage, CircleActivity.class);
+        activities.put(R.id.main_develop_xml_parse, XmlParseActivity.class);
     }
 
     public static DevelopFragment newInstance() {
@@ -39,7 +41,8 @@ public class DevelopFragment extends BaseFragment {
             R.id.main_develop_timeline,
             R.id.main_develop_dagger,
             R.id.main_develop_custom_view,
-            R.id.main_develop_circleImage
+            R.id.main_develop_circleImage,
+            R.id.main_develop_xml_parse
     })
     void onClick(View view) {
         Class<?> activityClass = activities.get(view.getId());
