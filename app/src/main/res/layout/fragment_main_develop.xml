@@ -58,8 +58,10 @@
                 android:text="@string/xml_parse_title" />
 
             <Button
+                android:id="@+id/main_develop_greendao"
                 style="@style/main_widget_button"
-                android:drawableTop="@drawable/ic_widget_expand" />
+                android:drawableTop="@drawable/ic_widget_expand"
+                android:text="@string/greendao_title" />
 
             <Button
                 style="@style/main_widget_button"

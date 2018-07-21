@@ -18,4 +18,5 @@
     <string name="dagger_title">Dagger Android使用</string>
     <string name="custom_view_title">自定义View</string>
     <string name="xml_parse_title">xml解析</string>
+    <string name="greendao_title">greendao数据库</string>
 </resources>
