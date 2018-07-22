@@ -29,5 +29,6 @@
         <activity android:name=".tabs.develop.customView.CustomViewActivity" />
         <activity android:name=".tabs.develop.xmlParse.XmlParseActivity" />
         <activity android:name=".tabs.develop.wave.WaveActivity" />
+        <activity android:name=".tabs.develop.greendao.GreenDaoActivity" />
     </application>
 </manifest>

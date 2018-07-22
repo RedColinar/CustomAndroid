@@ -26,6 +26,7 @@ public class DevelopFragment extends BaseFragment {
         activities.put(R.id.main_develop_circleImage, CircleActivity.class);
         activities.put(R.id.main_develop_xml_parse, XmlParseActivity.class);
         activities.put(R.id.main_develop_wave, WaveActivity.class);
+        activities.put(R.id.main_develop_greendao, GreenDaoActivity.class);
     }
 
     public static DevelopFragment newInstance() {
@@ -45,7 +46,8 @@ public class DevelopFragment extends BaseFragment {
             R.id.main_develop_custom_view,
             R.id.main_develop_circleImage,
             R.id.main_develop_xml_parse,
-            R.id.main_develop_wave
+            R.id.main_develop_wave,
+            R.id.main_develop_greendao
     })
     void onClick(View view) {
         Class<?> activityClass = activities.get(view.getId());
