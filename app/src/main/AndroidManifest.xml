@@ -28,5 +28,6 @@
         <activity android:name=".tabs.develop.dagger.DaggerActivity" />
         <activity android:name=".tabs.develop.customView.CustomViewActivity" />
         <activity android:name=".tabs.develop.xmlParse.XmlParseActivity" />
+        <activity android:name=".tabs.develop.wave.WaveActivity" />
     </application>
 </manifest>
