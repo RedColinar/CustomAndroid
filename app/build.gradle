@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 27
@@ -43,6 +44,8 @@ dependencies {
         exclude group: 'stax', module: 'stax'
         exclude group: 'xpp3', module: 'xpp3'
     }
+
+    implementation 'org.greenrobot:greendao:3.2.2'
 
     implementation project(':BaseTabBar')
     implementation project(':BottomBar')
