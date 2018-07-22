@@ -1,7 +1,13 @@
 package com.example.harry.customandroid.tabs.develop.greendao;
 
+import com.example.harry.customandroid.MyApplication;
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;
+import com.example.harry.customandroid.tabs.develop.greendao.entity.DaoSession;
+import com.example.harry.customandroid.tabs.develop.greendao.entity.UserEntity;
+import com.example.harry.customandroid.tabs.develop.greendao.entity.UserEntityDao;
+
+import java.util.UUID;
 
 /**
  * CustomAndroid
@@ -9,6 +15,8 @@ import com.example.harry.customandroid.base.BaseActivity;
  */
 
 public class GreenDaoActivity extends BaseActivity {
+    DaoSession daoSession = MyApplication.getDaoSession();
+
     @Override
     public int getLayoutId() {
         return R.layout.greendao_activity;
@@ -19,4 +27,19 @@ public class GreenDaoActivity extends BaseActivity {
         return R.string.greendao_title;
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        for (int i = 0; i < 10; i++) {
+            UserEntity entity = new UserEntity();
+            entity.setMarried(i % 2 == 0);
+            entity.setName("pq: " + i);
+            entity.setPkUser(UUID.randomUUID());
+            daoSession.insertOrReplace(entity);
+
+            daoSession.queryBuilder(UserEntity.class)
+                    .where(UserEntityDao.Properties.Name.eq("pq: 2"))
+                    .list();
+        }
+    }
 }

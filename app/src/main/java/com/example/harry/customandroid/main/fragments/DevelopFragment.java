@@ -9,6 +9,7 @@ import com.example.harry.customandroid.base.BaseFragment;
 import com.example.harry.customandroid.tabs.develop.circleImage.CircleActivity;
 import com.example.harry.customandroid.tabs.develop.customView.CustomViewActivity;
 import com.example.harry.customandroid.tabs.develop.dagger.DaggerActivity;
+import com.example.harry.customandroid.tabs.develop.greendao.GreenDaoActivity;
 import com.example.harry.customandroid.tabs.develop.timeline.TimelineActivity;
 import com.example.harry.customandroid.tabs.develop.wave.WaveActivity;
 import com.example.harry.customandroid.tabs.develop.xmlParse.XmlParseActivity;
