@@ -20,4 +20,5 @@
     <string name="xml_parse_title">xml解析</string>
     <string name="wave_title">波浪动画</string>
     <string name="greendao_title">greendao数据库</string>
+    <string name="circle_progress">环形进度条</string>
 </resources>

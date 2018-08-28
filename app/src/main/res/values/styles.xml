@@ -8,4 +8,10 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+
+    <declare-styleable name="CircleProgressView">
+        <attr name="ringWidth" format="dimension" />
+        <attr name="ringColor" format="color|reference" />
+        <attr name="progressTitle" format="string" />
+    </declare-styleable>
 </resources>

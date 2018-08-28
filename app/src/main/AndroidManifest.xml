@@ -30,5 +30,6 @@
         <activity android:name=".tabs.develop.xmlParse.XmlParseActivity" />
         <activity android:name=".tabs.develop.wave.WaveActivity" />
         <activity android:name=".tabs.develop.greendao.GreenDaoActivity" />
+        <activity android:name=".tabs.develop.circleProgress.CircleProgressActivity" />
     </application>
 </manifest>

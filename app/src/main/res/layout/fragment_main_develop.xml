@@ -70,8 +70,10 @@
                 android:text="@string/greendao_title" />
 
             <Button
+                android:id="@+id/main_develop_circleProgress"
                 style="@style/main_widget_button"
-                android:drawableTop="@drawable/ic_widget_expand"/>
+                android:drawableTop="@drawable/ic_widget_expand"
+                android:text="@string/circle_progress"/>
 
             <Button
                 style="@style/main_widget_button"

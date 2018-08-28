@@ -7,6 +7,7 @@ import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.tabs.develop.alarm.AlarmActivity;
 import com.example.harry.customandroid.base.BaseFragment;
 import com.example.harry.customandroid.tabs.develop.circleImage.CircleActivity;
+import com.example.harry.customandroid.tabs.develop.circleProgress.CircleProgressActivity;
 import com.example.harry.customandroid.tabs.develop.customView.CustomViewActivity;
 import com.example.harry.customandroid.tabs.develop.dagger.DaggerActivity;
 import com.example.harry.customandroid.tabs.develop.greendao.GreenDaoActivity;
@@ -28,6 +29,7 @@ public class DevelopFragment extends BaseFragment {
         activities.put(R.id.main_develop_xml_parse, XmlParseActivity.class);
         activities.put(R.id.main_develop_wave, WaveActivity.class);
         activities.put(R.id.main_develop_greendao, GreenDaoActivity.class);
+        activities.put(R.id.main_develop_circleProgress, CircleProgressActivity.class);
     }
 
     public static DevelopFragment newInstance() {
@@ -48,7 +50,8 @@ public class DevelopFragment extends BaseFragment {
             R.id.main_develop_circleImage,
             R.id.main_develop_xml_parse,
             R.id.main_develop_wave,
-            R.id.main_develop_greendao
+            R.id.main_develop_greendao,
+            R.id.main_develop_circleProgress
     })
     void onClick(View view) {
         Class<?> activityClass = activities.get(view.getId());
