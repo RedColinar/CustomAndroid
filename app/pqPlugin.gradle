@@ -1,0 +1,36 @@
+// build.gradle 文件中的 task
+class ApkDistExtension {
+    Closure nameMap
+    String destDir
+}
+
+class ApkDistPlugin implements Plugin<Project> {
+
+    @Override
+    void apply(Project project) {
+
+        project.extensions.create('pq', ApkDistExtension);
+
+        project.task('apkdist').doLast {
+            println 'hello, world!'
+
+            def closure = project['pq'].nameMap
+            closure('wow!')
+
+            println project['pq'].destDir
+        }
+    }
+}
+
+apply plugin: ApkDistPlugin
+
+// pq 闭包参数必须在apply之后
+
+//pq {
+//    nameMap { name ->
+//        println 'hello, ' + name
+//        return name
+//    }
+//    destDir 'your-distribution-directory'
+//}
+

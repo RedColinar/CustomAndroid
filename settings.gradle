@@ -1,1 +1,1 @@
-include ':app', ':ExpandView', ':BottomBar', ':BaseTabBar', ':image', ':ClearEditText'
+include ':app', ':ExpandView', ':BottomBar', ':BaseTabBar', ':image', ':ClearEditText', ':buidSrc'
