@@ -6,6 +6,7 @@ android {
     defaultConfig {
         applicationId "com.example.harry.custom_android"
         minSdkVersion 23
+        //noinspection OldTargetApi
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -26,7 +27,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:design:27.1.1'
 
     implementation 'com.facebook.fresco:fresco:1.7.1'
@@ -47,8 +48,8 @@ dependencies {
 
     implementation 'org.greenrobot:greendao:3.2.2'
 
-    compile 'com.facebook.stetho:stetho:1.4.2'
-    compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
     implementation project(':BaseTabBar')
     implementation project(':BottomBar')
