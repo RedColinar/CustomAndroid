@@ -11,6 +11,16 @@ pq {
     destDir 'pq-distribution-directory'
 }
 
+apply plugin: 'pq-plugin'
+
+packageConfig {
+    appVersion = rootProject.appVersion
+}
+
+static def releaseTime() {
+    return new Date().format("MM.dd", TimeZone.getTimeZone("UTC"))
+}
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -20,6 +30,7 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        flavorDimensions "default"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,10 +38,41 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                def newApkName = "${project.name}_${variant.flavorName}_v${defaultConfig.versionName}_${variant.buildType.name}_${releaseTime()}.apk"
+                outputFileName = newApkName
+            }
+        }
     }
+
+    productFlavors {
+        first {
+
+        }
+
+        second {
+
+        }
+
+        third {
+
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //签名配置
+    signingConfigs {
+        release {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            v2SigningEnabled = true
+        }
     }
 }
 
@@ -66,4 +108,16 @@ dependencies {
     implementation project(':ExpandView')
     implementation project(':image')
     implementation project(':ClearEditText')
+}
+
+task assembleChannel {
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def variantName = variant.name.capitalize()
+            println "---" + variantName
+            if (variantName.contains("Release")) {
+                dependsOn("assemble${variantName}Package")
+            }
+        }
+    }
 }

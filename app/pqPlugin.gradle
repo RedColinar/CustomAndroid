@@ -9,7 +9,7 @@ class ApkDistPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
 
-        project.extensions.create('pq', ApkDistExtension);
+        project.extensions.create('pq', ApkDistExtension)
 
         project.task('apkdist').doLast {
             println 'hello, world!'

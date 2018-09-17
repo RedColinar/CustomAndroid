@@ -1,1 +1,1 @@
-include ':app', ':ExpandView', ':BottomBar', ':BaseTabBar', ':image', ':ClearEditText', ':buidSrc'
+include ':app', ':ExpandView', ':BottomBar', ':BaseTabBar', ':image', ':ClearEditText', ':pqplugin', ':buildSrc'
