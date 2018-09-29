@@ -11,10 +11,32 @@ pq {
     destDir 'pq-distribution-directory'
 }
 
-apply plugin: 'pq-plugin'
+apply plugin: 'com.fooww.gradle.plugin'
+
+task assembleChannel {
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def variantName = variant.name.capitalize()
+            println "---" + variantName
+            // 只给冠名打包加固
+            if (variantName.contains("Release") && !variantName.contains("Fooww")) {
+                dependsOn("assemble${variantName}Package")
+            }
+        }
+    }
+}
+assembleChannel.group = 'fooww'
+assembleChannel.description = '冠名打包加固'
 
 packageConfig {
-    appVersion = rootProject.appVersion
+    appVersion = '1.0'
+    username = '18017001513'
+    password = 'teRqZyGXAPJfZj7'
+    keystorePath = './app/AndroidSign.keystore'
+    keystorePassword = 'Fangxun@2009'
+    keystoreAlias = 'fangxun'
+    keystoreAliasPassword = 'Fangxun@2009'
+    outputPath = './app/build/outputs/jiagu'
 }
 
 static def releaseTime() {
@@ -108,16 +130,4 @@ dependencies {
     implementation project(':ExpandView')
     implementation project(':image')
     implementation project(':ClearEditText')
-}
-
-task assembleChannel {
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            def variantName = variant.name.capitalize()
-            println "---" + variantName
-            if (variantName.contains("Release")) {
-                dependsOn("assemble${variantName}Package")
-            }
-        }
-    }
 }
