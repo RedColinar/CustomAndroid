@@ -38,17 +38,23 @@ class PackageTask extends DefaultTask {
     /** 360加固工具存放目录 */
     def jiaguRootPath
     def separator = File.separator
+    /** windows 下要指定 java.exe */
+    def binDir
 
     @TaskAction
     void packageTask() {
         String os = System.getProperties().getProperty("os.name").toLowerCase()
         println "操作系统: $os"
-        appPath = new File("").getAbsolutePath()
-        projectPath = appPath.substring(0, appPath.lastIndexOf(separator))
-        jiaguRootPath = """${projectPath}${separator}buildSrc${separator}tools${separator}360${separator}jiagu"""
+
         if (os.contains("windows")) {
+            projectPath = new File("").getAbsolutePath()
+            jiaguRootPath = """${projectPath}${separator}buildSrc${separator}tools${separator}360${separator}jiagu"""
             jiaguRootPath = jiaguRootPath + separator + "windows"
+            binDir = new File("${jiaguRootPath}${separator}java${separator}bin")
         } else if (os.contains("linux")) {
+            appPath = new File("").getAbsolutePath()
+            projectPath = appPath.substring(0, appPath.lastIndexOf(separator))
+            jiaguRootPath = """${projectPath}${separator}buildSrc${separator}tools${separator}360${separator}jiagu"""
             jiaguRootPath = jiaguRootPath + separator + "linux"
         }
 
@@ -60,9 +66,6 @@ class PackageTask extends DefaultTask {
         keystorePassword = targetProject.packageConfig.keystorePassword
         keystoreAlias = targetProject.packageConfig.keystoreAlias
         keystoreAliasPassword = targetProject.packageConfig.keystoreAliasPassword
-
-        outputPath = outputPath.replaceFirst(".", projectPath)
-        keystorePath = keystorePath.replaceFirst(".", projectPath)
 
         if (isEmpty(username)
                 || isEmpty(password)
@@ -77,6 +80,9 @@ class PackageTask extends DefaultTask {
         keystorePath = shiftSeparator(keystorePath)
         outputPath = shiftSeparator(outputPath)
 
+        outputPath = projectPath + outputPath.subSequence(1, outputPath.length())
+        keystorePath = projectPath + keystorePath.subSequence(1, keystorePath.length())
+
         println "项目根目录为 $projectPath"
         println "加固工具目录为 $jiaguRootPath"
         println "密钥目录为 $keystorePath"
@@ -85,14 +91,15 @@ class PackageTask extends DefaultTask {
         def out = new StringBuilder()
         def err = new StringBuilder()
         // 登录 登录信息已经存到了 jiagu.db 中，不必每次加固都登陆
-//        def login = "java -jar $jiaguRootPath/jiagu.jar -login $username $password".execute()
-//        login.waitForProcessOutput(out, err)
-//        println "=== login >$out>$err"
-//        clearStringBuilder(out, err)
+        def login = "java.exe -jar $jiaguRootPath${separator}jiagu.jar -login $username $password".execute(null, binDir)
+        login.waitForProcessOutput(out, err)
+        println "=== login >$out>$err"
+        clearStringBuilder(out, err)
 
         // 导入签名
-        def importSign = "java -jar $jiaguRootPath${separator}jiagu.jar -importsign $keystorePath $keystorePassword $keystoreAlias $keystoreAliasPassword".execute()
+        def importSign = "java.exe -jar $jiaguRootPath${separator}jiagu.jar -importsign $keystorePath $keystorePassword $keystoreAlias $keystoreAliasPassword".execute(null, binDir)
         importSign.waitForProcessOutput(out, err)
+        println "java.exe -jar $jiaguRootPath${separator}jiagu.jar -importsign $keystorePath $keystorePassword $keystoreAlias $keystoreAliasPassword"
         println "=== importSign >$out>$err"
         clearStringBuilder(out, err)
 
@@ -103,12 +110,13 @@ class PackageTask extends DefaultTask {
             }
 
             if (!new File(outputPath).exists()) {
-                "mkdir -p $outputPath".execute().waitForProcessOutput(out, err)
+                new File(outputPath).mkdirs()
+                // "mkdir -p $outputPath".execute(null, binDir).waitForProcessOutput(out, err)
             }
             // "rm -rf outputPath".execute().waitForProcessOutput(out, err)
-            "chmod 777 $outputPath".execute().waitForProcessOutput(out, err)
+            // "chmod 777 $outputPath".execute(null, binDir).waitForProcessOutput(out, err)
 
-            def cmd = "java -jar ${jiaguRootPath}${separator}jiagu.jar -jiagu $apkFile $outputPath -autosign".execute()
+            def cmd = "java.exe -jar ${jiaguRootPath}${separator}jiagu.jar -jiagu $apkFile $outputPath -autosign".execute(null, binDir)
             cmd.in.eachLine {
                 println "===>>>$it"
             }

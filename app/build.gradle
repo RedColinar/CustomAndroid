@@ -32,10 +32,10 @@ packageConfig {
     appVersion = '1.0'
     username = '18017001513'
     password = 'teRqZyGXAPJfZj7'
-    keystorePath = './app/AndroidSign.keystore'
-    keystorePassword = 'Fangxun@2009'
-    keystoreAlias = 'fangxun'
-    keystoreAliasPassword = 'Fangxun@2009'
+    keystorePath = './app/key-store.jks'
+    keystorePassword = STORE_PASSWORD
+    keystoreAlias = KEY_ALIAS
+    keystoreAliasPassword = KEY_PASSWORD
     outputPath = './app/build/outputs/jiagu'
 }
 
