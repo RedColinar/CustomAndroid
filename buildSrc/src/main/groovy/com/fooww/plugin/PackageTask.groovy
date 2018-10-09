@@ -79,7 +79,7 @@ class PackageTask extends DefaultTask {
         jiaguRootPath = shiftSeparator(jiaguRootPath)
         keystorePath = shiftSeparator(keystorePath)
         outputPath = shiftSeparator(outputPath)
-
+        // 替换根路径
         outputPath = projectPath + outputPath.subSequence(1, outputPath.length())
         keystorePath = projectPath + keystorePath.subSequence(1, keystorePath.length())
 
@@ -91,17 +91,33 @@ class PackageTask extends DefaultTask {
         def out = new StringBuilder()
         def err = new StringBuilder()
         // 登录 登录信息已经存到了 jiagu.db 中，不必每次加固都登陆
-        def login = "java.exe -jar $jiaguRootPath${separator}jiagu.jar -login $username $password".execute(null, binDir)
-        login.waitForProcessOutput(out, err)
-        println "=== login >$out>$err"
-        clearStringBuilder(out, err)
+        def login
+        if (os.contains("windows")) {
+            login = "java.exe -jar $jiaguRootPath${separator}jiagu.jar -login $username $password".execute(null, binDir)
+        } else if (os.contains("linux")) {
+            login = "java -jar $jiaguRootPath/jiagu.jar -login $username $password".execute()
+        }
+
+        if (login != null) {
+            login.waitForProcessOutput(out, err)
+            println "=== login >$out>$err"
+            clearStringBuilder(out, err)
+        }
 
         // 导入签名
-        def importSign = "java.exe -jar $jiaguRootPath${separator}jiagu.jar -importsign $keystorePath $keystorePassword $keystoreAlias $keystoreAliasPassword".execute(null, binDir)
-        importSign.waitForProcessOutput(out, err)
-        println "java.exe -jar $jiaguRootPath${separator}jiagu.jar -importsign $keystorePath $keystorePassword $keystoreAlias $keystoreAliasPassword"
-        println "=== importSign >$out>$err"
-        clearStringBuilder(out, err)
+        def importSign
+
+        if (os.contains("windows")) {
+            importSign = "java.exe -jar $jiaguRootPath${separator}jiagu.jar -importsign $keystorePath $keystorePassword $keystoreAlias $keystoreAliasPassword".execute(null, binDir)
+        } else if (os.contains("linux")) {
+            importSign = "java -jar $jiaguRootPath${separator}jiagu.jar -importsign $keystorePath $keystorePassword $keystoreAlias $keystoreAliasPassword".execute()
+        }
+
+        if (importSign != null) {
+            importSign.waitForProcessOutput(out, err)
+            println "=== importSign >$out>$err"
+            clearStringBuilder(out, err)
+        }
 
         variant.outputs.all {
             def apkFile = it.outputFile
@@ -113,12 +129,19 @@ class PackageTask extends DefaultTask {
                 new File(outputPath).mkdirs()
                 // "mkdir -p $outputPath".execute(null, binDir).waitForProcessOutput(out, err)
             }
-            // "rm -rf outputPath".execute().waitForProcessOutput(out, err)
-            // "chmod 777 $outputPath".execute(null, binDir).waitForProcessOutput(out, err)
 
-            def cmd = "java.exe -jar ${jiaguRootPath}${separator}jiagu.jar -jiagu $apkFile $outputPath -autosign".execute(null, binDir)
-            cmd.in.eachLine {
-                println "===>>>$it"
+            def cmd
+
+            if (os.contains("windows")) {
+                cmd = "java.exe -jar ${jiaguRootPath}${separator}jiagu.jar -jiagu $apkFile $outputPath -autosign".execute(null, binDir)
+            } else if (os.contains("linux")) {
+                cmd = "java -jar ${jiaguRootPath}${separator}jiagu.jar -jiagu $apkFile $outputPath -autosign".execute()
+            }
+
+            if (cmd != null) {
+                cmd.in.eachLine {
+                    println "===>>>$it"
+                }
             }
         }
     }
