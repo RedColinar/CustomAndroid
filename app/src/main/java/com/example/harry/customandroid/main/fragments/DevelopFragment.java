@@ -11,6 +11,7 @@ import com.example.harry.customandroid.tabs.develop.circleProgress.CircleProgres
 import com.example.harry.customandroid.tabs.develop.customView.CustomViewActivity;
 import com.example.harry.customandroid.tabs.develop.dagger.DaggerActivity;
 import com.example.harry.customandroid.tabs.develop.greendao.GreenDaoActivity;
+import com.example.harry.customandroid.tabs.develop.ping.PingActivity;
 import com.example.harry.customandroid.tabs.develop.timeline.TimelineActivity;
 import com.example.harry.customandroid.tabs.develop.wave.WaveActivity;
 import com.example.harry.customandroid.tabs.develop.xmlParse.XmlParseActivity;
@@ -30,6 +31,7 @@ public class DevelopFragment extends BaseFragment {
         activities.put(R.id.main_develop_wave, WaveActivity.class);
         activities.put(R.id.main_develop_greendao, GreenDaoActivity.class);
         activities.put(R.id.main_develop_circleProgress, CircleProgressActivity.class);
+        activities.put(R.id.main_develop_usage_of_ping, PingActivity.class);
     }
 
     public static DevelopFragment newInstance() {
@@ -51,7 +53,8 @@ public class DevelopFragment extends BaseFragment {
             R.id.main_develop_xml_parse,
             R.id.main_develop_wave,
             R.id.main_develop_greendao,
-            R.id.main_develop_circleProgress
+            R.id.main_develop_circleProgress,
+            R.id.main_develop_usage_of_ping
     })
     void onClick(View view) {
         Class<?> activityClass = activities.get(view.getId());

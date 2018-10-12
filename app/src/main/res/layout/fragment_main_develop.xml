@@ -76,8 +76,10 @@
                 android:text="@string/circle_progress"/>
 
             <Button
+                android:id="@+id/main_develop_usage_of_ping"
                 style="@style/main_widget_button"
-                android:drawableTop="@drawable/ic_widget_expand"/>
+                android:drawableTop="@drawable/ic_widget_expand"
+                android:text="@string/usage_of_ping"/>
 
         </LinearLayout>
 

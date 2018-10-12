@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.harry.customandroid">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -15,8 +16,12 @@
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <data android:scheme="example" android:host="harry" />
             </intent-filter>
         </activity>
         <activity android:name=".tabs.widgets.expand.ExpandActivity" />
@@ -31,5 +36,6 @@
         <activity android:name=".tabs.develop.wave.WaveActivity" />
         <activity android:name=".tabs.develop.greendao.GreenDaoActivity" />
         <activity android:name=".tabs.develop.circleProgress.CircleProgressActivity" />
+        <activity android:name=".tabs.develop.ping.PingActivity" />
     </application>
 </manifest>
