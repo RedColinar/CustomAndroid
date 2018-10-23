@@ -22,4 +22,5 @@
     <string name="greendao_title">greendao数据库</string>
     <string name="circle_progress">环形进度条</string>
     <string name="usage_of_ping">ping的用法</string>
+    <string name="picture_to_ascii">图片转字符</string>
 </resources>

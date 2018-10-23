@@ -11,6 +11,7 @@ import com.example.harry.customandroid.tabs.develop.circleProgress.CircleProgres
 import com.example.harry.customandroid.tabs.develop.customView.CustomViewActivity;
 import com.example.harry.customandroid.tabs.develop.dagger.DaggerActivity;
 import com.example.harry.customandroid.tabs.develop.greendao.GreenDaoActivity;
+import com.example.harry.customandroid.tabs.develop.pictureToAscii.PictureToAsciiActivity;
 import com.example.harry.customandroid.tabs.develop.ping.PingActivity;
 import com.example.harry.customandroid.tabs.develop.timeline.TimelineActivity;
 import com.example.harry.customandroid.tabs.develop.wave.WaveActivity;
@@ -32,15 +33,7 @@ public class DevelopFragment extends BaseFragment {
         activities.put(R.id.main_develop_greendao, GreenDaoActivity.class);
         activities.put(R.id.main_develop_circleProgress, CircleProgressActivity.class);
         activities.put(R.id.main_develop_usage_of_ping, PingActivity.class);
-    }
-
-    public static DevelopFragment newInstance() {
-        return new DevelopFragment();
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.fragment_main_develop;
+        activities.put(R.id.picture_to_ascii, PictureToAsciiActivity.class);
     }
 
     // 注解里面的参数不能是变量
@@ -54,12 +47,22 @@ public class DevelopFragment extends BaseFragment {
             R.id.main_develop_wave,
             R.id.main_develop_greendao,
             R.id.main_develop_circleProgress,
-            R.id.main_develop_usage_of_ping
+            R.id.main_develop_usage_of_ping,
+            R.id.picture_to_ascii
     })
     void onClick(View view) {
         Class<?> activityClass = activities.get(view.getId());
         if (activityClass != null) {
             start(activityClass);
         }
+    }
+
+    public static DevelopFragment newInstance() {
+        return new DevelopFragment();
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.fragment_main_develop;
     }
 }

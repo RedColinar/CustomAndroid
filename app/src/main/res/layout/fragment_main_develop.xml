@@ -83,6 +83,35 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/picture_to_ascii"
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"
+                android:text="@string/picture_to_ascii" />
+
+            <Button
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"/>
+
+            <Button
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand" />
+
+            <Button
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"/>
+
+            <Button
+                style="@style/main_widget_button"
+                android:drawableTop="@drawable/ic_widget_expand"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>
