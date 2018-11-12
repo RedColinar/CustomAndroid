@@ -95,7 +95,9 @@
                 android:text="@string/picture_to_ascii" />
 
             <Button
+                android:id="@+id/main_change_desk_icon"
                 style="@style/main_widget_button"
+                android:text="@string/change_desk_icon"
                 android:drawableTop="@drawable/ic_widget_expand"/>
 
             <Button

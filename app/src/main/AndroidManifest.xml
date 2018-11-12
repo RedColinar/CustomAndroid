@@ -14,18 +14,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".main.MainActivity"/>
+
+        <activity-alias android:name=".IconNormalActivity"
+            android:enabled="true"
+            android:icon="@drawable/ic_search_white"
+            android:targetActivity=".main.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias android:name=".IconChangedActivity"
+            android:enabled="false"
+            android:icon="@drawable/ic_image_edit"
+            android:targetActivity=".main.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity android:name=".tabs.widgets.expand.ExpandActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="example" android:host="harry" />
             </intent-filter>
         </activity>
-        <activity android:name=".tabs.widgets.expand.ExpandActivity" />
         <activity android:name=".tabs.widgets.imageEdit.ImageEditActivity" />
         <activity android:name=".tabs.widgets.clearEditText.ClearEditTextActivity" />
         <activity android:name=".tabs.develop.alarm.AlarmActivity" />
@@ -39,5 +55,6 @@
         <activity android:name=".tabs.develop.circleProgress.CircleProgressActivity" />
         <activity android:name=".tabs.develop.ping.PingActivity" />
         <activity android:name=".tabs.develop.pictureToAscii.PictureToAsciiActivity" />
+        <activity android:name=".tabs.develop.changeDeskIcon.ChangeDeskIconActivity" />
     </application>
 </manifest>

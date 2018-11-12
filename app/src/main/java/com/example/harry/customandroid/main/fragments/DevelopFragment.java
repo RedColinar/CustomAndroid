@@ -6,6 +6,7 @@ import android.view.View;
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.tabs.develop.alarm.AlarmActivity;
 import com.example.harry.customandroid.base.BaseFragment;
+import com.example.harry.customandroid.tabs.develop.changeDeskIcon.ChangeDeskIconActivity;
 import com.example.harry.customandroid.tabs.develop.circleImage.CircleActivity;
 import com.example.harry.customandroid.tabs.develop.circleProgress.CircleProgressActivity;
 import com.example.harry.customandroid.tabs.develop.customView.CustomViewActivity;
@@ -34,6 +35,7 @@ public class DevelopFragment extends BaseFragment {
         activities.put(R.id.main_develop_circleProgress, CircleProgressActivity.class);
         activities.put(R.id.main_develop_usage_of_ping, PingActivity.class);
         activities.put(R.id.picture_to_ascii, PictureToAsciiActivity.class);
+        activities.put(R.id.main_change_desk_icon, ChangeDeskIconActivity.class);
     }
 
     // 注解里面的参数不能是变量
@@ -48,7 +50,8 @@ public class DevelopFragment extends BaseFragment {
             R.id.main_develop_greendao,
             R.id.main_develop_circleProgress,
             R.id.main_develop_usage_of_ping,
-            R.id.picture_to_ascii
+            R.id.picture_to_ascii,
+            R.id.main_change_desk_icon
     })
     void onClick(View view) {
         Class<?> activityClass = activities.get(view.getId());

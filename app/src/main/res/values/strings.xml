@@ -23,4 +23,5 @@
     <string name="circle_progress">环形进度条</string>
     <string name="usage_of_ping">ping的用法</string>
     <string name="picture_to_ascii">图片转字符</string>
+    <string name="change_desk_icon">改变手机桌面图标</string>
 </resources>
