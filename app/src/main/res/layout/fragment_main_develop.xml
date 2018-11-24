@@ -101,6 +101,8 @@
                 android:drawableTop="@drawable/ic_widget_expand"/>
 
             <Button
+                android:id="@+id/main_tag_view"
+                android:text="@string/tag_view_title"
                 style="@style/main_widget_button"
                 android:drawableTop="@drawable/ic_widget_expand" />
 

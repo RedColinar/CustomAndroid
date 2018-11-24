@@ -24,4 +24,5 @@
     <string name="usage_of_ping">ping的用法</string>
     <string name="picture_to_ascii">图片转字符</string>
     <string name="change_desk_icon">改变手机桌面图标</string>
+    <string name="tag_view_title">标签布局</string>
 </resources>

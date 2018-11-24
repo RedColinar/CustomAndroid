@@ -14,13 +14,12 @@ import com.example.harry.customandroid.tabs.develop.dagger.DaggerActivity;
 import com.example.harry.customandroid.tabs.develop.greendao.GreenDaoActivity;
 import com.example.harry.customandroid.tabs.develop.pictureToAscii.PictureToAsciiActivity;
 import com.example.harry.customandroid.tabs.develop.ping.PingActivity;
+import com.example.harry.customandroid.tabs.develop.tagViewLayout.TagViewLayoutActivity;
 import com.example.harry.customandroid.tabs.develop.timeline.TimelineActivity;
 import com.example.harry.customandroid.tabs.develop.wave.WaveActivity;
 import com.example.harry.customandroid.tabs.develop.xmlParse.XmlParseActivity;
 
-import butterknife.OnClick;
-
-public class DevelopFragment extends BaseFragment {
+public class DevelopFragment extends BaseFragment implements View.OnClickListener {
     public final SparseArray<Class<?>> activities = new SparseArray<>();
 
     {
@@ -36,24 +35,11 @@ public class DevelopFragment extends BaseFragment {
         activities.put(R.id.main_develop_usage_of_ping, PingActivity.class);
         activities.put(R.id.picture_to_ascii, PictureToAsciiActivity.class);
         activities.put(R.id.main_change_desk_icon, ChangeDeskIconActivity.class);
+        activities.put(R.id.main_tag_view, TagViewLayoutActivity.class);
     }
 
-    // 注解里面的参数不能是变量
-    @OnClick({
-            R.id.main_develop_alarm,
-            R.id.main_develop_timeline,
-            R.id.main_develop_dagger,
-            R.id.main_develop_custom_view,
-            R.id.main_develop_circleImage,
-            R.id.main_develop_xml_parse,
-            R.id.main_develop_wave,
-            R.id.main_develop_greendao,
-            R.id.main_develop_circleProgress,
-            R.id.main_develop_usage_of_ping,
-            R.id.picture_to_ascii,
-            R.id.main_change_desk_icon
-    })
-    void onClick(View view) {
+    @Override
+    public void onClick(View view) {
         Class<?> activityClass = activities.get(view.getId());
         if (activityClass != null) {
             start(activityClass);
@@ -67,5 +53,17 @@ public class DevelopFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
         return R.layout.fragment_main_develop;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (getView() == null) return;
+        for (int i = 0; i < activities.size(); i++) {
+            View view = getView().findViewById(activities.keyAt(i));
+            if (view != null) {
+                view.setOnClickListener(this);
+            }
+        }
     }
 }
