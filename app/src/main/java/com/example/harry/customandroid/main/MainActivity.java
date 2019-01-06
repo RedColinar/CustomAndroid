@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.example.bottombar.GradientTabStrip;
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;
-import com.example.harry.customandroid.main.adapters.MainAdapter;
 
 public class MainActivity extends BaseActivity {
 

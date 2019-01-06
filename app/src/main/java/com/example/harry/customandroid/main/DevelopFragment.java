@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.main.fragments;
+package com.example.harry.customandroid.main;
 
 import android.util.SparseArray;
 import android.view.View;
