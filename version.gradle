@@ -1,5 +1,5 @@
 ext {
     appVersion = '1.0'
-    gradleVersion = '3.1.4'
+    gradleVersion = '3.2.1'
     daggerVersion = '2.14.1'
 }
