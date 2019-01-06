@@ -76,6 +76,8 @@
                 android:text="@string/circle_progress"/>
 
             <Button
+                android:id="@+id/main_develop_kotlin"
+                android:text="@string/kotlin_title"
                 style="@style/main_widget_button"
                 android:drawableTop="@drawable/ic_widget_expand"/>
 

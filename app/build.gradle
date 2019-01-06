@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'org.greenrobot.greendao'
 
 apply from: 'pqPlugin.gradle'
@@ -69,17 +70,9 @@ android {
     }
 
     productFlavors {
-        first {
-
-        }
-
-        second {
-
-        }
-
-        third {
-
-        }
+        first {}
+        second {}
+        third {}
     }
 
     compileOptions {
@@ -96,9 +89,16 @@ android {
             v2SigningEnabled = true
         }
     }
+
+    sourceSets {
+        test.java.srcDirs += 'src/test/kotlin'
+    }
 }
 
 dependencies {
+    testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$rootProject.kotlin_version"
+
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -135,4 +135,9 @@ dependencies {
     implementation project(':ExpandView')
     implementation project(':image')
     implementation project(':ClearEditText')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
