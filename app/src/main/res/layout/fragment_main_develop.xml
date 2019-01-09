@@ -107,6 +107,8 @@
                 android:drawableTop="@drawable/ic_widget_expand" />
 
             <Button
+                android:id="@+id/service_usage"
+                android:text="@string/service_usage"
                 style="@style/main_widget_button"
                 android:drawableTop="@drawable/ic_widget_expand"/>
 

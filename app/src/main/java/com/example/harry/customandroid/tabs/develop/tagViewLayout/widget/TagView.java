@@ -1,36 +1,15 @@
-/*
- * Copyright 2015 lujun
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.harry.customandroid.tabs.develop.tagViewLayout.widget;
 
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Region;
-import android.graphics.Shader;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.widget.ViewDragHelper;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -41,10 +20,6 @@ import com.example.harry.customandroid.R;
 
 import static com.example.harry.customandroid.utils.Utils.dp2px;
 
-/**
- * Author: lujun(http://blog.lujun.co)
- * Date: 2015-12-31 11:47
- */
 public class TagView extends FrameLayout {
 
     /** Border width*/
@@ -53,14 +28,8 @@ public class TagView extends FrameLayout {
     /** Border radius*/
     private float mBorderRadius;
 
-    /** Text size*/
-    private float mTextSize;
-
     /** Whether this view clickable*/
     private boolean isViewClickable;
-
-    /** The max length for this tag view*/
-    private int mTagMaxLength;
 
     /** OnTagClickListener for click action*/
     private OnTagClickListener mOnTagClickListener;
@@ -74,26 +43,15 @@ public class TagView extends FrameLayout {
     /** How long trigger long click callback(default 500ms)*/
     private int mLongPressTime = 500;
 
-    /** Text direction(support:TEXT_DIRECTION_RTL & TEXT_DIRECTION_LTR, default TEXT_DIRECTION_LTR)*/
-    private int mTextDirection = View.TEXT_DIRECTION_LTR;
-
-    /** The distance between baseline and descent*/
-    private float bdDistance;
-
-    /** Whether to support 'letters show with RTL(eg: Android to diordnA)' style(default false)*/
-    private boolean mTagSupportLettersRTL = false;
-
-    private Paint mPaint, mRipplePaint;
+    private Paint mRipplePaint;
 
     private RectF mRectF;
 
-    private String mAbstractText, mOriginText;
+    private String mOriginText;
 
     private boolean isUp, isMoved, isExecLongClick;
 
     private int mLastX, mLastY;
-
-    private float fontH, fontW;
 
     private float mTouchX, mTouchY;
 
@@ -108,21 +66,13 @@ public class TagView extends FrameLayout {
 
     private Path mPath;
 
-    private Typeface mTypeface;
-
     private ValueAnimator mRippleValueAnimator;
-
-    private Bitmap mBitmapImage;
 
     private boolean mEnableCross;
 
     private float mCrossAreaWidth;
 
     private float mCrossAreaPadding;
-
-    private int mCrossColor;
-
-    private float mCrossLineWidth;
 
     private boolean unSupportedClipPath = false;
 
@@ -131,7 +81,7 @@ public class TagView extends FrameLayout {
         public void run() {
             if (!isMoved && !isUp){
                 int state = ((TagContainerLayout)getParent()).getTagViewState();
-                if (state == ViewDragHelper.STATE_IDLE){
+                if (state == ViewDragHelper.STATE_IDLE) {
                     isExecLongClick = true;
                     mOnTagClickListener.onTagLongClick((int) getTag(), getText());
                 }
@@ -147,10 +97,8 @@ public class TagView extends FrameLayout {
     private void init(Context context, String text){
         LayoutInflater.from(context).inflate(R.layout.layout_tag, this);
         ((TextView) findViewById(R.id.tv_tag_text)).setText(text);
-
         mCrossAreaWidth = dp2px(context, 12);
 
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mRipplePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mRipplePaint.setStyle(Paint.Style.FILL);
         mRectF = new RectF();
@@ -160,36 +108,10 @@ public class TagView extends FrameLayout {
         mSlopThreshold = (int) dp2px(context, mSlopThreshold);
     }
 
-    private void onDealText(){
-        if(!TextUtils.isEmpty(mOriginText)) {
-            mAbstractText = mOriginText.length() <= mTagMaxLength ? mOriginText
-                    : mOriginText.substring(0, mTagMaxLength - 3) + "...";
-        }else {
-            mAbstractText = "";
-        }
-        mPaint.setTypeface(mTypeface);
-        mPaint.setTextSize(mTextSize);
-        final Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
-        fontH = fontMetrics.descent - fontMetrics.ascent;
-        if (mTextDirection == View.TEXT_DIRECTION_RTL){
-            fontW = 0;
-            for (char c : mAbstractText.toCharArray()) {
-                String sc = String.valueOf(c);
-                fontW += mPaint.measureText(sc);
-            }
-        }else {
-            fontW = mPaint.measureText(mAbstractText);
-        }
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
-
-//    @Override
-//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-//        int height = mVerticalPadding * 2 + (int) fontH;
-//        int width = mHorizontalPadding * 2 + (int) fontW + (isEnableCross() ? height : 0) + (isEnableImage() ? height : 0);
-//        mCrossAreaWidth = Math.min(Math.max(mCrossAreaWidth, height), width);
-//        setMeasuredDimension(width, height);
-//    }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -200,49 +122,7 @@ public class TagView extends FrameLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        // draw background
-//        mPaint.setStyle(Paint.Style.FILL);
-//        mPaint.setColor(mBackgroundColor);
-//        canvas.drawRoundRect(mRectF, mBorderRadius, mBorderRadius, mPaint);
-//
-//        // draw border
-//        mPaint.setStyle(Paint.Style.STROKE);
-//        mPaint.setStrokeWidth(mBorderWidth);
-//        mPaint.setColor(mBorderColor);
-//        canvas.drawRoundRect(mRectF, mBorderRadius, mBorderRadius, mPaint);
-
-        // draw ripple for TagView
         drawRipple(canvas);
-
-        // draw text
-//        mPaint.setStyle(Paint.Style.FILL);
-//        mPaint.setColor(mTextColor);
-//
-//        if (mTextDirection == View.TEXT_DIRECTION_RTL) {
-//            if (mTagSupportLettersRTL){
-//                float tmpX = (isEnableCross() ? getWidth() + getHeight() : getWidth()) / 2
-//                        + fontW / 2;
-//                for (char c : mAbstractText.toCharArray()) {
-//                    String sc = String.valueOf(c);
-//                    tmpX -= mPaint.measureText(sc);
-//                    canvas.drawText(sc, tmpX, getHeight() / 2 + fontH / 2 - bdDistance, mPaint);
-//                }
-//            }else {
-//                canvas.drawText(mAbstractText,
-//                        (isEnableCross() ? getWidth() + fontW : getWidth()) / 2 - fontW / 2,
-//                        getHeight() / 2 + fontH / 2 - bdDistance, mPaint);
-//            }
-//        } else {
-//            canvas.drawText(mAbstractText,
-//                    (isEnableCross() ? getWidth() - getHeight() : getWidth()) / 2 - fontW / 2 + (isEnableImage() ? getHeight() / 2 : 0),
-//                    getHeight() / 2 + fontH / 2 - bdDistance, mPaint);
-//        }
-//
-//        // draw cross
-//        drawCross(canvas);
-//
-//        // draw image
-//        drawImage(canvas);
     }
 
     @Override
@@ -324,14 +204,11 @@ public class TagView extends FrameLayout {
     }
 
     private boolean isClickCrossArea(MotionEvent event){
-        if (mTextDirection == View.TEXT_DIRECTION_RTL){
-            return event.getX() <= mCrossAreaWidth;
-        }
         return event.getX() >= getWidth() - mCrossAreaWidth;
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    private void drawRipple(Canvas canvas){
+    private void drawRipple(Canvas canvas) {
         if (isViewClickable && canvas != null && !unSupportedClipPath){
 
             // Disable hardware acceleration for 'Canvas.clipPath()' when running on API from 11 to 17
@@ -353,7 +230,7 @@ public class TagView extends FrameLayout {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void splashRipple(){
-        if (mTouchX > 0 && mTouchY > 0){
+        if (mTouchX > 0 && mTouchY > 0) {
             mRipplePaint.setColor(mRippleColor);
             mRipplePaint.setAlpha(mRippleAlpha);
             final float maxDis = Math.max(Math.max(Math.max(mTouchX, mTouchY),
@@ -393,23 +270,10 @@ public class TagView extends FrameLayout {
         this.isViewClickable = clickable;
     }
 
-    public void setImage(Bitmap newImage) {
-        this.mBitmapImage = newImage;
-        this.invalidate();
-    }
-
     public interface OnTagClickListener{
         void onTagClick(int position, String text);
         void onTagLongClick(int position, String text);
         void onTagCrossClick(int position);
-    }
-
-    public int getTextDirection() {
-        return mTextDirection;
-    }
-
-    public void setTextDirection(int textDirection) {
-        this.mTextDirection = textDirection;
     }
 
     public void setRippleAlpha(int mRippleAlpha) {
@@ -424,18 +288,16 @@ public class TagView extends FrameLayout {
         this.mRippleDuration = mRippleDuration;
     }
 
-    public void setBdDistance(float bdDistance) {
-        this.bdDistance = bdDistance;
-    }
-
-    public boolean isEnableImage() { return mBitmapImage != null && mTextDirection != View.TEXT_DIRECTION_RTL; }
-
     public boolean isEnableCross() {
         return mEnableCross;
     }
 
     public void setEnableCross(boolean mEnableCross) {
         this.mEnableCross = mEnableCross;
+        View v = findViewById(R.id.iv_tag_delete);
+        if (v != null) {
+            v.setVisibility(mEnableCross ? VISIBLE : GONE);
+        }
     }
 
     public float getCrossAreaWidth() {
@@ -446,14 +308,6 @@ public class TagView extends FrameLayout {
         this.mCrossAreaWidth = mCrossAreaWidth;
     }
 
-    public float getCrossLineWidth() {
-        return mCrossLineWidth;
-    }
-
-    public void setCrossLineWidth(float mCrossLineWidth) {
-        this.mCrossLineWidth = mCrossLineWidth;
-    }
-
     public float getCrossAreaPadding() {
         return mCrossAreaPadding;
     }
@@ -462,19 +316,4 @@ public class TagView extends FrameLayout {
         this.mCrossAreaPadding = mCrossAreaPadding;
     }
 
-    public int getCrossColor() {
-        return mCrossColor;
-    }
-
-    public void setCrossColor(int mCrossColor) {
-        this.mCrossColor = mCrossColor;
-    }
-
-    public boolean isTagSupportLettersRTL() {
-        return mTagSupportLettersRTL;
-    }
-
-    public void setTagSupportLettersRTL(boolean mTagSupportLettersRTL) {
-        this.mTagSupportLettersRTL = mTagSupportLettersRTL;
-    }
 }

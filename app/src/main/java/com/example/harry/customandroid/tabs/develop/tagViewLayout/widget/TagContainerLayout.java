@@ -1,19 +1,3 @@
-/*
- * Copyright 2015 lujun
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.harry.customandroid.tabs.develop.tagViewLayout.widget;
 
 import android.content.Context;
@@ -22,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.graphics.Typeface;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -38,10 +21,6 @@ import java.util.List;
 
 import static com.example.harry.customandroid.utils.Utils.dp2px;
 
-/**
- * Author: lujun(http://blog.lujun.co)
- * Date: 2015-12-30 17:14
- */
 public class TagContainerLayout extends ViewGroup {
 
     /**
@@ -115,11 +94,6 @@ public class TagContainerLayout extends ViewGroup {
     private int mTagVerticalPadding = 8;
 
     /**
-     * TagView typeface
-     */
-    private Typeface mTagTypeface = Typeface.DEFAULT;
-
-    /**
      * Whether TagView can clickable(default unclickable)
      */
     private boolean isTagViewClickable;
@@ -140,11 +114,6 @@ public class TagContainerLayout extends ViewGroup {
     private int mTagViewState = ViewDragHelper.STATE_IDLE;
 
     /**
-     * The distance between baseline and descent(default 2.75dp)
-     */
-    private float mTagBdDistance = 2.75f;
-
-    /**
      * OnTagClickListener for TagView
      */
     private TagView.OnTagClickListener mOnTagClickListener;
@@ -160,7 +129,7 @@ public class TagContainerLayout extends ViewGroup {
 
     private ViewDragHelper mViewDragHelper;
 
-    private List<View> mChildViews;
+    private List<TagView> mChildViews;
 
     private int[] mViewPos;
 
@@ -173,21 +142,6 @@ public class TagContainerLayout extends ViewGroup {
      * Default tag min length
      */
     private static final int TAG_MIN_LENGTH = 3;
-
-    /**
-     * The ripple effect duration(In milliseconds, default 1000ms)
-     */
-    private int mRippleDuration = 1000;
-
-    /**
-     * The ripple effect color(default #EEEEEE)
-     */
-    private int mRippleColor;
-
-    /**
-     * The ripple effect color alpha(the value may between 0 - 255, default 128)
-     */
-    private int mRippleAlpha = 128;
 
     /**
      * Enable draw cross icon(default false)
@@ -228,8 +182,6 @@ public class TagContainerLayout extends ViewGroup {
                 dp2px(context, mBorderWidth));
         mBorderRadius = attributes.getDimension(R.styleable.AndroidTagView_container_border_radius,
                 dp2px(context, mBorderRadius));
-        mTagBdDistance = attributes.getDimension(R.styleable.AndroidTagView_tag_bd_distance,
-                dp2px(context, mTagBdDistance));
         mBorderColor = attributes.getColor(R.styleable.AndroidTagView_container_border_color,
                 mBorderColor);
         mBackgroundColor = attributes.getColor(R.styleable.AndroidTagView_container_background_color,
@@ -247,9 +199,6 @@ public class TagContainerLayout extends ViewGroup {
                 R.styleable.AndroidTagView_tag_vertical_padding, dp2px(context, mTagVerticalPadding));
         mTagTextDirection = attributes.getInt(R.styleable.AndroidTagView_tag_text_direction, mTagTextDirection);
         isTagViewClickable = attributes.getBoolean(R.styleable.AndroidTagView_tag_clickable, false);
-        mRippleColor = attributes.getColor(R.styleable.AndroidTagView_tag_ripple_color, Color.parseColor("#EEEEEE"));
-        mRippleAlpha = attributes.getInteger(R.styleable.AndroidTagView_tag_ripple_alpha, mRippleAlpha);
-        mRippleDuration = attributes.getInteger(R.styleable.AndroidTagView_tag_ripple_duration, mRippleDuration);
         mEnableCross = attributes.getBoolean(R.styleable.AndroidTagView_tag_enable_cross, mEnableCross);
         mCrossAreaWidth = attributes.getDimension(R.styleable.AndroidTagView_tag_cross_width,
                 dp2px(context, mCrossAreaWidth));
@@ -422,12 +371,7 @@ public class TagContainerLayout extends ViewGroup {
         return mMaxLines <= 0 ? lines : mMaxLines;
     }
 
-
-
     private void onSetTag() {
-        if (mTags == null) {
-            throw new RuntimeException("NullPointer exception!");
-        }
         removeAllTags();
         if (mTags.size() == 0) {
             return;
@@ -458,18 +402,10 @@ public class TagContainerLayout extends ViewGroup {
     }
 
     private void initTagView(TagView tagView, int position) {
-
-        tagView.setTextDirection(mTagTextDirection);
         tagView.setIsViewClickable(isTagViewClickable);
-        tagView.setBdDistance(mTagBdDistance);
         tagView.setOnTagClickListener(mOnTagClickListener);
-        tagView.setRippleAlpha(mRippleAlpha);
-        tagView.setRippleColor(mRippleColor);
-        tagView.setRippleDuration(mRippleDuration);
         tagView.setEnableCross(mEnableCross);
-        tagView.setCrossAreaWidth(mCrossAreaWidth);
         tagView.setCrossAreaPadding(mCrossAreaPadding);
-        tagView.setTagSupportLettersRTL(mTagSupportLettersRTL);
     }
 
     private void invalidateTags() {
@@ -534,7 +470,7 @@ public class TagContainerLayout extends ViewGroup {
 
     private void onChangeView(View view, int newPos, int originPos) {
         mChildViews.remove(originPos);
-        mChildViews.add(newPos, view);
+        mChildViews.add(newPos, (TagView) view);
         for (View child : mChildViews) {
             child.setTag(mChildViews.indexOf(child));
         }
@@ -600,24 +536,6 @@ public class TagContainerLayout extends ViewGroup {
      */
     public int getTagViewState() {
         return mTagViewState;
-    }
-
-    /**
-     * Get TagView text baseline and descent distance.
-     *
-     * @return
-     */
-    public float getTagBdDistance() {
-        return mTagBdDistance;
-    }
-
-    /**
-     * Set TagView text baseline and descent distance.
-     *
-     * @param tagBdDistance
-     */
-    public void setTagBdDistance(float tagBdDistance) {
-        this.mTagBdDistance = dp2px(getContext(), tagBdDistance);
     }
 
     /**
@@ -697,7 +615,7 @@ public class TagContainerLayout extends ViewGroup {
      * @return
      */
     public String getTagText(int position) {
-        return ((TagView) mChildViews.get(position)).getText();
+        return (mChildViews.get(position)).getText();
     }
 
     /**
@@ -971,97 +889,6 @@ public class TagContainerLayout extends ViewGroup {
     }
 
     /**
-     * Set tag text direction, support:View.TEXT_DIRECTION_RTL and View.TEXT_DIRECTION_LTR,
-     * default View.TEXT_DIRECTION_LTR
-     *
-     * @param textDirection
-     */
-    public void setTagTextDirection(int textDirection) {
-        this.mTagTextDirection = textDirection;
-    }
-
-    /**
-     * Get TagView typeface.
-     *
-     * @return
-     */
-    public Typeface getTagTypeface() {
-        return mTagTypeface;
-    }
-
-    /**
-     * Set TagView typeface.
-     *
-     * @param typeface
-     */
-    public void setTagTypeface(Typeface typeface) {
-        this.mTagTypeface = typeface;
-    }
-
-    /**
-     * Get tag text direction
-     *
-     * @return
-     */
-    public int getTagTextDirection() {
-        return mTagTextDirection;
-    }
-
-    /**
-     * Get the ripple effect color's alpha.
-     *
-     * @return
-     */
-    public int getRippleAlpha() {
-        return mRippleAlpha;
-    }
-
-    /**
-     * Set TagView ripple effect alpha, the value may between 0 to 255, default is 128.
-     *
-     * @param mRippleAlpha
-     */
-    public void setRippleAlpha(int mRippleAlpha) {
-        this.mRippleAlpha = mRippleAlpha;
-    }
-
-    /**
-     * Get the ripple effect color.
-     *
-     * @return
-     */
-    public int getRippleColor() {
-        return mRippleColor;
-    }
-
-    /**
-     * Set TagView ripple effect color.
-     *
-     * @param mRippleColor
-     */
-    public void setRippleColor(int mRippleColor) {
-        this.mRippleColor = mRippleColor;
-    }
-
-    /**
-     * Get the ripple effect duration.
-     *
-     * @return
-     */
-    public int getRippleDuration() {
-        return mRippleDuration;
-    }
-
-    /**
-     * Set TagView ripple effect duration, default is 1000ms.
-     *
-     * @param mRippleDuration
-     */
-    public void setRippleDuration(int mRippleDuration) {
-        this.mRippleDuration = mRippleDuration;
-    }
-
-    /**
      * Get agView cross area's padding.
      *
      * @return
@@ -1095,6 +922,9 @@ public class TagContainerLayout extends ViewGroup {
      */
     public void setEnableCross(boolean mEnableCross) {
         this.mEnableCross = mEnableCross;
+        for (int i = 0; i < mChildViews.size(); i++) {
+            mChildViews.get(i).setEnableCross(mEnableCross);
+        }
     }
 
     /**
@@ -1116,33 +946,15 @@ public class TagContainerLayout extends ViewGroup {
     }
 
     /**
-     * Get the 'letters show with RTL(like: Android to diordnA)' style if it's enabled
-     *
-     * @return
-     */
-    public boolean isTagSupportLettersRTL() {
-        return mTagSupportLettersRTL;
-    }
-
-    /**
-     * Set whether the 'support letters show with RTL(like: Android to diordnA)' style is enabled.
-     *
-     * @param mTagSupportLettersRTL
-     */
-    public void setTagSupportLettersRTL(boolean mTagSupportLettersRTL) {
-        this.mTagSupportLettersRTL = mTagSupportLettersRTL;
-    }
-
-    /**
      * Get TagView in specified position.
      *
      * @param position the position of the TagView
      * @return
      */
-    public TagView getTagView(int position){
+    public TagView getTagView(int position) {
         if (position < 0 || position >= mChildViews.size()) {
             throw new RuntimeException("Illegal position!");
         }
-        return (TagView) mChildViews.get(position);
+        return mChildViews.get(position);
     }
 }

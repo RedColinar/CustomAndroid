@@ -12,7 +12,19 @@
         app:container_background_color="#00000000"
         app:tag_clickable="true"
         app:container_enable_drag="true"
+        app:tag_enable_cross="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/change_edit_status"
+        android:text="编辑"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/show_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

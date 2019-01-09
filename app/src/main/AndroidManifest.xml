@@ -57,5 +57,8 @@
         <activity android:name=".tabs.develop.pictureToAscii.PictureToAsciiActivity" />
         <activity android:name=".tabs.develop.changeDeskIcon.ChangeDeskIconActivity" />
         <activity android:name=".tabs.develop.tagViewLayout.TagViewLayoutActivity" />
+        <activity android:name=".tabs.develop.service.ServiceDemoActivity" />
+
+        <service android:name=".tabs.develop.service.UploadService" />
     </application>
 </manifest>
