@@ -26,4 +26,5 @@
     <string name="change_desk_icon">改变手机桌面图标</string>
     <string name="tag_view_title">标签布局</string>
     <string name="service_usage">service使用</string>
+    <string name="calendar">系统日历</string>
 </resources>

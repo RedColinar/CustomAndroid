@@ -35,13 +35,13 @@ public class MyApplication extends Application implements HasActivityInjector {
     public void onCreate() {
         super.onCreate();
         app = getApplicationContext();
-        Stetho.initializeWithDefaults(this);
-        Fresco.initialize(this);
-        DaggerMyAppComponent.create().inject(this);
-
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "notes-db");
         Database db = helper.getWritableDb();
         daoSession = new DaoMaster(db).newSession();
+
+        Stetho.initializeWithDefaults(this);
+        Fresco.initialize(this);
+        DaggerMyAppComponent.create().inject(this);
     }
 
     @Override

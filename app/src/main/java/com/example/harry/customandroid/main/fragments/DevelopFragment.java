@@ -6,6 +6,7 @@ import android.view.View;
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.tabs.develop.alarm.AlarmActivity;
 import com.example.harry.customandroid.base.BaseFragment;
+import com.example.harry.customandroid.tabs.develop.calendar.CalendarActivity;
 import com.example.harry.customandroid.tabs.develop.changeDeskIcon.ChangeDeskIconActivity;
 import com.example.harry.customandroid.tabs.develop.circleImage.CircleActivity;
 import com.example.harry.customandroid.tabs.develop.circleProgress.CircleProgressActivity;
@@ -34,10 +35,11 @@ public class DevelopFragment extends BaseFragment implements View.OnClickListene
         activities.put(R.id.main_develop_greendao, GreenDaoActivity.class);
         activities.put(R.id.main_develop_circleProgress, CircleProgressActivity.class);
         activities.put(R.id.main_develop_usage_of_ping, PingActivity.class);
-        activities.put(R.id.picture_to_ascii, PictureToAsciiActivity.class);
-        activities.put(R.id.main_change_desk_icon, ChangeDeskIconActivity.class);
-        activities.put(R.id.main_tag_view, TagViewLayoutActivity.class);
-        activities.put(R.id.service_usage, ServiceDemoActivity.class);
+        activities.put(R.id.main_develop_picture_to_ascii, PictureToAsciiActivity.class);
+        activities.put(R.id.main_develop_change_desk_icon, ChangeDeskIconActivity.class);
+        activities.put(R.id.main_develop_tag_view, TagViewLayoutActivity.class);
+        activities.put(R.id.main_develop_service_usage, ServiceDemoActivity.class);
+        activities.put(R.id.main_develop_calendar, CalendarActivity.class);
     }
 
     @Override

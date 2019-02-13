@@ -89,31 +89,33 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/picture_to_ascii"
+                android:id="@+id/main_develop_picture_to_ascii"
                 style="@style/main_widget_button"
                 android:drawableTop="@drawable/ic_widget_expand"
                 android:text="@string/picture_to_ascii" />
 
             <Button
-                android:id="@+id/main_change_desk_icon"
+                android:id="@+id/main_develop_change_desk_icon"
                 style="@style/main_widget_button"
                 android:text="@string/change_desk_icon"
                 android:drawableTop="@drawable/ic_widget_expand"/>
 
             <Button
-                android:id="@+id/main_tag_view"
+                android:id="@+id/main_develop_tag_view"
                 android:text="@string/tag_view_title"
                 style="@style/main_widget_button"
                 android:drawableTop="@drawable/ic_widget_expand" />
 
             <Button
-                android:id="@+id/service_usage"
+                android:id="@+id/main_develop_service_usage"
                 android:text="@string/service_usage"
                 style="@style/main_widget_button"
                 android:drawableTop="@drawable/ic_widget_expand"/>
 
             <Button
+                android:id="@+id/main_develop_calendar"
                 style="@style/main_widget_button"
+                android:text="@string/calendar"
                 android:drawableTop="@drawable/ic_widget_expand"/>
 
         </LinearLayout>

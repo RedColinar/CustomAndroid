@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.example.harry.customandroid.R;
 
 import butterknife.ButterKnife;
-import dagger.android.AndroidInjection;
 
 /**
  * CustomAndroid
