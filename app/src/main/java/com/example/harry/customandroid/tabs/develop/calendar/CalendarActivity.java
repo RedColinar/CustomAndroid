@@ -12,12 +12,15 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.widget.Button;
 
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;
 import com.google.ical.values.RRule;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -171,10 +174,8 @@ public class CalendarActivity extends BaseActivity {
         values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
 
         // 重复
-        values.put(CalendarContract.Events.RRULE, "FREQ=DAILY;INTERVAL=1;COUNT=3;UNTIL=20200109");
-
-        // 通知
-        addReminders();
+        String rrule = "FREQ=DAILY;INTERVAL=1;COUNT=3;UNTIL=20200109";
+        values.put(CalendarContract.Events.RRULE, rrule);
 
         try {
             Uri uri = contentResolver.insert(CalendarContract.Events.CONTENT_URI, values);
@@ -182,10 +183,6 @@ public class CalendarActivity extends BaseActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void addReminders() {
-
     }
 
     @OnClick(R.id.bt_update_event)
@@ -228,15 +225,15 @@ public class CalendarActivity extends BaseActivity {
     }
 
     public static final String[] INSTANCE_PROJECTION = new String[] {
-            CalendarContract.Instances.EVENT_ID,      // 0
-            CalendarContract.Instances.BEGIN,         // 1
-            CalendarContract.Instances.TITLE          // 2
+            CalendarContract.Instances.EVENT_ID,
+            CalendarContract.Instances.BEGIN,
+            CalendarContract.Instances.END,
+            CalendarContract.Instances.TITLE,
+            CalendarContract.Instances.START_DAY,
+            CalendarContract.Instances.START_MINUTE,
+            CalendarContract.Instances.END_DAY,
+            CalendarContract.Instances.END_MINUTE,
     };
-
-    // 为上面的映射数组定义索引常量
-    private static final int PROJECTION_ID_INDEX = 0;
-    private static final int PROJECTION_BEGIN_INDEX = 1;
-    private static final int PROJECTION_TITLE_INDEX = 2;
 
     @OnClick(R.id.bt_query_instance)
     public void queryInstance() {
@@ -250,6 +247,36 @@ public class CalendarActivity extends BaseActivity {
         endTime.add(Calendar.DAY_OF_MONTH, 4);
         long endMillis = endTime.getTimeInMillis();
 
+        // 要在 Instances 表中查询的事件 ID
+        String selection = CalendarContract.Instances.EVENT_ID + " = ?";
+        String[] selectionArgs = new String[] {lastEventId + ""};
 
+        // 根据日期范围构造查询
+        Uri.Builder builder = CalendarContract.Instances.CONTENT_URI.buildUpon();
+        ContentUris.appendId(builder, startMillis);
+        ContentUris.appendId(builder, endMillis);
+
+        // 提交查询
+        Cursor cur = contentResolver.query(builder.build(),
+                INSTANCE_PROJECTION,
+                selection,
+                selectionArgs,
+                null);
+
+        while (cur.moveToNext()) {
+            long eventID = cur.getLong(0);
+            String title = cur.getString(3);
+            long beginVal = cur.getLong(1);
+            int startDay = cur.getInt(4);
+            int startMinute = cur.getInt(5);
+
+            // 利用这些数据完成一些操作
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(beginVal);
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String beginDate = formatter.format(calendar.getTime());
+
+
+        }
     }
 }
