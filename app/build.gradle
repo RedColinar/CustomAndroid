@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 apply from: 'pqPlugin.gradle'
 
@@ -114,6 +116,7 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
 
     implementation('com.squareup.retrofit2:converter-simplexml:2.1.0') {
         exclude group: 'stax', module: 'stax-api'

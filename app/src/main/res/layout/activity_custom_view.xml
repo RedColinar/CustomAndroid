@@ -17,13 +17,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.example.harry.customandroid.tabs.develop.customView.CanvasView
+            <!--<com.example.harry.customandroid.tabs.develop.customView.CanvasView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="400dp"-->
+            <!--android:background="@color/colorAccent"/>-->
+
+            <com.example.harry.customandroid.tabs.develop.customView.DashView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@color/colorAccent"/>
+                android:layout_height="400dp" />
+
+            <com.example.harry.customandroid.tabs.develop.customView.PieView
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
 
         </LinearLayout>
-
 
     </ScrollView>
 
