@@ -30,6 +30,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="400dp" />
 
+            <com.example.harry.customandroid.tabs.develop.customView.XfermodeView
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
+
         </LinearLayout>
 
     </ScrollView>
