@@ -11,10 +11,15 @@ import com.example.harry.customandroid.utils.dp2px
  */
 class DashView @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null) : View(context, attrs) {
 
-    private var path = Path()
+    private val paint = Paint()
+    private val r = dp2px(150f)
+    private lateinit var rect: RectF
     private lateinit var effect: PathDashPathEffect
+
+    private var path = Path()
     private var pointerPath = Path()
-    private var paint = Paint()
+    private var cx = 0f
+    private var cy = 0f
 
     companion object {
         const val ANGLE: Float = 120f
@@ -22,51 +27,52 @@ class DashView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?
         const val START_ANGLE = 90 + ANGLE / 2
         const val ANGLE_PER_STEP = (360 - ANGLE) / STEP
 
-        val PADDING: Float = dp2px(10f)
         val STROKE_WIDTH = dp2px(1f)
         val STROKE_LENGTH = dp2px(10f)
-        val POINTER_LENGTH = dp2px(210f)
+        val POINTER_LENGTH = dp2px(110f)
     }
 
     init {
         paint.isAntiAlias = true
         paint.color = Color.BLACK
-        paint.strokeWidth = STROKE_WIDTH
+        paint.strokeWidth = DashView.STROKE_WIDTH
         paint.style = Paint.Style.STROKE
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
 
-        val r = Math.min(w / 2 - dp2px(PADDING), h / 2 - dp2px(PADDING))
-        val rect = RectF(w / 2f - r, h / 2f - r, w / 2f + r, h / 2f + r)
+        rect = RectF(w / 2f - r, h / 2f - r, w / 2f + r, h / 2f + r)
         path.addArc(rect, START_ANGLE, 360 - ANGLE)
-
         val pathMeasure = PathMeasure(path, false)
-        val advance = (pathMeasure.length - STROKE_WIDTH) / STEP
+
+        cx = rect.centerX()
+        cy = rect.centerY()
 
         val effectPath = Path()
-        effectPath.addRect(0f, 0f, STROKE_WIDTH, STROKE_LENGTH, Path.Direction.CW)
-        effect = PathDashPathEffect(effectPath, advance, 0f, PathDashPathEffect.Style.MORPH)
+        val advance = (pathMeasure.length - STROKE_WIDTH) / STEP
 
-        pointTo(0)
+        effectPath.addRect(0f, 0f, STROKE_WIDTH, STROKE_LENGTH, Path.Direction.CW)
+
+        effect = PathDashPathEffect(effectPath, advance, 0f, PathDashPathEffect.Style.ROTATE)
+
+        internalPointTo(0)
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas?.drawPath(path, paint)
+
+        canvas.drawPath(path, paint)
 
         paint.pathEffect = effect
-        canvas?.drawPath(path, paint)
+        canvas.drawPath(path, paint)
         paint.pathEffect = null
 
-        canvas?.drawPath(pointerPath, paint)
+        canvas.drawPath(pointerPath, paint)
     }
 
-    fun pointTo(index: Int) {
-        val cx: Float = width / 2f
-        val cy: Float = height / 2f
-
+    private fun internalPointTo(index: Int) {
+        pointerPath.reset()
         val radius = Math.toRadians((START_ANGLE + index * ANGLE_PER_STEP).toDouble())
         val cosA: Double = Math.cos(radius)
         val sinA: Double = Math.sin(radius)
@@ -74,9 +80,12 @@ class DashView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?
         pointerPath.reset()
         pointerPath.moveTo(cx, cy)
         pointerPath.lineTo(
-                cx + POINTER_LENGTH * cosA.toFloat(),
-                cx + POINTER_LENGTH * sinA.toFloat())
+                cx + (POINTER_LENGTH * cosA).toFloat(),
+                cy + (POINTER_LENGTH * sinA).toFloat())
+    }
 
+    fun pointTo(index: Int) {
+        internalPointTo(index)
         invalidate()
     }
 }
