@@ -1,5 +1,6 @@
 package com.example.harry.customandroid.tabs.develop.customView
 
+import android.os.Bundle
 import com.example.harry.customandroid.R
 import com.example.harry.customandroid.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_custom_view.*
@@ -15,8 +16,8 @@ class CustomViewActivity : BaseActivity() {
         return R.string.custom_view_title
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         var index = 0
         val timer = Timer()

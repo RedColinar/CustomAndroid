@@ -17,6 +17,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <com.example.harry.customandroid.tabs.develop.customView.CanvasView
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
+
             <com.example.harry.customandroid.tabs.develop.customView.DashView
                 android:id="@+id/dash_view"
                 android:layout_width="match_parent"
