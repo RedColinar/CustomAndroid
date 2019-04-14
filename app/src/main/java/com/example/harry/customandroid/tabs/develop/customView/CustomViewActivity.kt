@@ -19,16 +19,5 @@ class CustomViewActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var index = 0
-        val timer = Timer()
-        val timerTask = object : TimerTask() {
-            override fun run() {
-                dash_view.pointTo(index)
-                index++
-                index %= DashView.STEP + 1
-            }
-        }
-
-        timer.schedule(timerTask, 1000, 1000)
     }
 }

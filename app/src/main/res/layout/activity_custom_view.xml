@@ -17,20 +17,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.example.harry.customandroid.tabs.develop.customView.CanvasView
+            <com.example.harry.customandroid.tabs.develop.customView.CircleProgressView
                 android:layout_width="match_parent"
                 android:layout_height="400dp" />
 
-            <com.example.harry.customandroid.tabs.develop.customView.DashView
-                android:id="@+id/dash_view"
+            <com.example.harry.customandroid.tabs.develop.customView.TypeComposeView
                 android:layout_width="match_parent"
                 android:layout_height="400dp" />
 
-            <com.example.harry.customandroid.tabs.develop.customView.PieView
-                android:layout_width="match_parent"
-                android:layout_height="400dp" />
-
-            <com.example.harry.customandroid.tabs.develop.customView.XfermodeView
+            <com.example.harry.customandroid.tabs.develop.customView.GeometricXferView
                 android:layout_width="match_parent"
                 android:layout_height="400dp" />
 
