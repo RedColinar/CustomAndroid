@@ -1,10 +1,10 @@
 package com.example.harry.customandroid.tabs.develop.customView
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import com.example.harry.customandroid.R
 import com.example.harry.customandroid.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_custom_view.*
-import java.util.*
 
 class CustomViewActivity : BaseActivity() {
 
@@ -18,6 +18,11 @@ class CustomViewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val animator = ObjectAnimator.ofFloat(geometric_transfer_view, "degree", -90f, 90f)
+        animator.startDelay = 1000
+        animator.duration = 2000
+        animator.start()
 
     }
 }
