@@ -12,17 +12,14 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.widget.Button;
 
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;
-import com.google.ical.values.RRule;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 
 import butterknife.BindView;

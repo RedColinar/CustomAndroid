@@ -1,6 +1,6 @@
 package com.example.harry.customandroid.tabs.develop.greendao;
 
-import com.example.harry.customandroid.MyApplication;
+import com.example.harry.customandroid.application.MyApplication;
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;
 import com.example.harry.customandroid.tabs.develop.greendao.entity.DaoSession;

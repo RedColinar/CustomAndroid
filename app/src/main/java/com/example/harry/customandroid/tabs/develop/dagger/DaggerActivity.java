@@ -1,11 +1,9 @@
 package com.example.harry.customandroid.tabs.develop.dagger;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;
@@ -16,10 +14,6 @@ import dagger.android.AndroidInjection;
 
 public class DaggerActivity extends BaseActivity {
 
-    @Inject
-    String className;
-    @Inject
-    SharedPreferences sp;
     @Inject
     DaggerPresenter presenter;
     @Inject
@@ -43,22 +37,11 @@ public class DaggerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
     public void gotoSecond(View view) {
-        Toast.makeText(this,
-                "gotoSecond: ---" + className + "student: " + s1.toString(),
-                Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "gotoSecond: ---" + className + "student: " + s1.toString());
+        Log.d(TAG, "gotoSecond: --- student: " + s1.toString());
     }
 
     public void requestHttp(View view) {
-        Toast.makeText(this,
-                "requestHttp: ---" + className + "student: " + s2.toString(),
-                Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "requestHttp: ---" + className + "student: " + s2.toString());
+        Log.d(TAG, "requestHttp: --- student: " + s2.toString());
     }
 }
