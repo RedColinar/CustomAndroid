@@ -1,10 +1,12 @@
 package com.example.harry.customandroid.tabs.develop.customView
 
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import com.example.harry.customandroid.R
 import com.example.harry.customandroid.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_custom_view.*
+import kotlinx.android.synthetic.main.custom_toolbar.*
 
 class CustomViewActivity : BaseActivity() {
 
@@ -19,10 +21,29 @@ class CustomViewActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val animator = ObjectAnimator.ofFloat(geometric_transfer_view, "degree", -90f, 90f)
-        animator.startDelay = 1000
-        animator.duration = 2000
-        animator.start()
+        geometric_transfer_view.sideRotate = -45f
+        geometric_transfer_view.sideDegree = 150f
 
+        toolbar_title.setOnClickListener {
+            geometric_transfer_view.sideRotate = 0f
+            geometric_transfer_view.anotherRotate = 0f
+
+            val animator1 = ObjectAnimator.ofFloat(geometric_transfer_view, "sideRotate", 0f, -45f)
+            animator1.startDelay = 500
+            animator1.duration = 2000
+            animator1.start()
+
+            val animator2 = ObjectAnimator.ofFloat(geometric_transfer_view, "sideDegree", 90f, 450f)
+            animator2.startDelay = 500
+            animator2.duration = 2000
+
+            val animator3 = ObjectAnimator.ofFloat(geometric_transfer_view, "anotherRotate", 0f, 45f)
+            animator3.startDelay = 500
+            animator3.duration = 2000
+
+            val animatorSet = AnimatorSet()
+            animatorSet.playSequentially(animator1, animator2, animator3)
+            animatorSet.start()
+        }
     }
 }

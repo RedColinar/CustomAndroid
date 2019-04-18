@@ -17,13 +17,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--<com.example.harry.customandroid.tabs.develop.customView.CircleProgressView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="400dp" />-->
+            <com.example.harry.customandroid.tabs.develop.customView.CircleProgressView
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
 
-            <!--<com.example.harry.customandroid.tabs.develop.customView.TypeComposeView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="400dp" />-->
+            <com.example.harry.customandroid.tabs.develop.customView.TypeComposeView
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
 
             <com.example.harry.customandroid.tabs.develop.customView.GeometricXferView
                 android:id="@+id/geometric_transfer_view"
