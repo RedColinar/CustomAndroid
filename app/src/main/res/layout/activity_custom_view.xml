@@ -17,6 +17,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <com.example.harry.customandroid.tabs.develop.customView.MaterialEditText
+                android:id="@+id/edit_text"
+                android:hint="hahahha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <com.example.harry.customandroid.tabs.develop.customView.CircleProgressView
                 android:layout_width="match_parent"
                 android:layout_height="400dp" />
