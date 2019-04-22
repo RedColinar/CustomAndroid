@@ -27,4 +27,6 @@
     <string name="tag_view_title">标签布局</string>
     <string name="service_usage">service使用</string>
     <string name="calendar">系统日历</string>
+    <string name="custom_layout_title">自定义layout</string>
+    <string name="coordinator_layout_title">coordinator布局</string>
 </resources>

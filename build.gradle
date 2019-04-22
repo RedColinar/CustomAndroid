@@ -9,7 +9,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$rootProject.gradleVersion"
+        classpath "com.android.tools.build:gradle:${rootProject.gradleVersion}"
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.kotlin_version"
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'

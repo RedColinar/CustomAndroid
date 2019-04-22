@@ -10,6 +10,7 @@ import com.example.harry.customandroid.tabs.develop.calendar.CalendarActivity;
 import com.example.harry.customandroid.tabs.develop.changeDeskIcon.ChangeDeskIconActivity;
 import com.example.harry.customandroid.tabs.develop.circleImage.CircleActivity;
 import com.example.harry.customandroid.tabs.develop.circleProgress.CircleProgressActivity;
+import com.example.harry.customandroid.tabs.develop.coorinatorLayout.CoordinatorLayoutActivity;
 import com.example.harry.customandroid.tabs.develop.customView.CustomViewActivity;
 import com.example.harry.customandroid.tabs.develop.dagger.DaggerActivity;
 import com.example.harry.customandroid.tabs.develop.greendao.GreenDaoActivity;
@@ -40,6 +41,7 @@ public class DevelopFragment extends BaseFragment implements View.OnClickListene
         activities.put(R.id.main_develop_tag_view, TagViewLayoutActivity.class);
         activities.put(R.id.main_develop_service_usage, ServiceDemoActivity.class);
         activities.put(R.id.main_develop_calendar, CalendarActivity.class);
+        activities.put(R.id.main_develop_coordinator, CoordinatorLayoutActivity.class);
     }
 
     @Override
