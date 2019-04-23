@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.harry.customandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -61,7 +62,7 @@
         <activity android:name=".tabs.develop.tagViewLayout.TagViewLayoutActivity" />
         <activity android:name=".tabs.develop.service.ServiceDemoActivity" />
         <activity android:name=".tabs.develop.calendar.CalendarActivity" />
-        <activity android:name=".tabs.develop.customView.CustomLayoutActivity" />
+        <activity android:name=".tabs.develop.tagViewLayout.CustomLayoutActivity" />
         <activity android:name=".tabs.develop.coorinatorLayout.CoordinatorLayoutActivity" />
 
         <service android:name=".tabs.develop.service.UploadService" />

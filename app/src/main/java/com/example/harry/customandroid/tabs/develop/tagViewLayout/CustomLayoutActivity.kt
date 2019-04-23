@@ -1,4 +1,4 @@
-package com.example.harry.customandroid.tabs.develop.customView
+package com.example.harry.customandroid.tabs.develop.tagViewLayout
 
 import com.example.harry.customandroid.R
 import com.example.harry.customandroid.base.BaseActivity

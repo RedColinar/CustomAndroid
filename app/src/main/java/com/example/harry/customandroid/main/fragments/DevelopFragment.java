@@ -17,6 +17,7 @@ import com.example.harry.customandroid.tabs.develop.greendao.GreenDaoActivity;
 import com.example.harry.customandroid.tabs.develop.pictureToAscii.PictureToAsciiActivity;
 import com.example.harry.customandroid.tabs.develop.ping.PingActivity;
 import com.example.harry.customandroid.tabs.develop.service.ServiceDemoActivity;
+import com.example.harry.customandroid.tabs.develop.tagViewLayout.CustomLayoutActivity;
 import com.example.harry.customandroid.tabs.develop.tagViewLayout.TagViewLayoutActivity;
 import com.example.harry.customandroid.tabs.develop.timeline.TimelineActivity;
 import com.example.harry.customandroid.tabs.develop.wave.WaveActivity;
@@ -42,6 +43,7 @@ public class DevelopFragment extends BaseFragment implements View.OnClickListene
         activities.put(R.id.main_develop_service_usage, ServiceDemoActivity.class);
         activities.put(R.id.main_develop_calendar, CalendarActivity.class);
         activities.put(R.id.main_develop_coordinator, CoordinatorLayoutActivity.class);
+        activities.put(R.id.main_develop_tag_layout, CustomLayoutActivity.class);
     }
 
     @Override
