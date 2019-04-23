@@ -1,7 +1,7 @@
 package com.example.harry.customandroid.tabs.develop.coorinatorLayout
 
 import android.os.Bundle
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import com.example.harry.customandroid.R
 import com.example.harry.customandroid.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_coordinator_1.*

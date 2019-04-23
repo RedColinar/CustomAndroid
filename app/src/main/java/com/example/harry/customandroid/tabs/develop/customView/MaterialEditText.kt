@@ -3,8 +3,8 @@ package com.example.harry.customandroid.tabs.develop.customView
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Canvas
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.AppCompatEditText
+import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.AppCompatEditText
 import android.text.Editable
 import android.text.TextPaint
 import android.text.TextUtils
@@ -18,7 +18,7 @@ import com.example.harry.customandroid.utils.dp2px
  */
 class MaterialEditText @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
-    defStyleAttr: Int = android.support.design.R.attr.editTextStyle
+    defStyleAttr: Int = androidx.appcompat.R.attr.editTextStyle
 ) : AppCompatEditText(context, attrs, defStyleAttr) {
 
     private val textPaint = TextPaint()

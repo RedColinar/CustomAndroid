@@ -8,9 +8,10 @@
         android:id="@id/toolbar"
         layout="@layout/custom_toolbar" />
 
+
     <com.example.harry.customandroid.tabs.develop.tagViewLayout.widget.ColoredTagLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <com.example.harry.customandroid.tabs.develop.tagViewLayout.widget.ColoredTextView
             android:layout_width="wrap_content"

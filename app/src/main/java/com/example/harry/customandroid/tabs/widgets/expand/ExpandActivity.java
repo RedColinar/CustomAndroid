@@ -1,10 +1,10 @@
 package com.example.harry.customandroid.tabs.widgets.expand;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import android.widget.TextView;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.expandview.ExpandView;
 import com.example.harry.customandroid.R;

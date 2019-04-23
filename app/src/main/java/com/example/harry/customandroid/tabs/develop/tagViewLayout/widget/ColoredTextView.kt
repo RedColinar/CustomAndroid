@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.graphics.Color.parseColor
 import android.graphics.Paint
-import android.support.v7.widget.AppCompatTextView
+import androidx.appcompat.widget.AppCompatTextView
 import android.util.AttributeSet
 import com.example.harry.customandroid.utils.dp2px
 import java.util.*

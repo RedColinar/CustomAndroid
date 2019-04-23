@@ -2,19 +2,13 @@ package com.example.harry.customandroid.tabs.develop.circleImage;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.ComposeShader;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
 import com.example.harry.customandroid.R;
@@ -24,7 +18,7 @@ import com.example.harry.customandroid.R;
  * Created by Harry on 2018/6/6.
  */
 
-public class CircleImage extends android.support.v7.widget.AppCompatImageView {
+public class CircleImage extends androidx.appcompat.widget.AppCompatImageView {
 
     private Paint mPaint = new Paint();
     private Paint mBackGroundpaint = new Paint();

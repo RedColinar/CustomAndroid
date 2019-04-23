@@ -15,40 +15,60 @@ class ColoredTagLayout @JvmOverloads constructor(
 
     private val childRect = LinkedList<Rect>()
 
-    init {
-        for (i in 0 until childCount) {
-            val rect = Rect()
-            childRect.add(rect)
-        }
-    }
-
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         var widthUsed = 0
         var heightUsed = 0
+        var lineHeight = 0
 
         for (i in 0 until childCount) {
             val child = getChildAt(i)
             measureChildWithMargins(
                 child,
                 widthMeasureSpec,
-                widthUsed,
+                0,
                 heightMeasureSpec,
                 heightUsed
             )
 
-            val rect = childRect[i]
+            if (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.UNSPECIFIED) {
+                if (widthUsed + child.measuredWidth >= MeasureSpec.getSize(widthMeasureSpec)) {
+                    heightUsed += Math.max(lineHeight, child.measuredHeight)
+                    lineHeight = 0
+                    widthUsed = 0
+
+                    measureChildWithMargins(
+                        child,
+                        widthMeasureSpec,
+                        0,
+                        heightMeasureSpec,
+                        heightUsed
+                    )
+                }
+            }
+
+            val rect = if (childRect.size <= childCount) {
+                val rect = Rect()
+                childRect.add(rect)
+                rect
+            } else {
+                childRect[i]
+            }
+
+            lineHeight = Math.max(lineHeight, child.measuredHeight)
 
             rect.set(
                 widthUsed,
                 heightUsed,
                 widthUsed + child.measuredWidth,
-                Math.max(heightUsed, child.measuredHeight)
+                heightUsed + lineHeight
             )
-            widthUsed += child.measuredWidth
 
+            widthUsed += child.measuredWidth
         }
 
-        setMeasuredDimension(widthUsed, heightUsed)
+        if (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.UNSPECIFIED) {
+            setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), heightUsed + lineHeight)
+        }
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {

@@ -1,7 +1,7 @@
 package com.example.harry.customandroid.tabs.develop.tagViewLayout;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.BindViews;
 
 import static android.widget.Toast.LENGTH_SHORT;
 

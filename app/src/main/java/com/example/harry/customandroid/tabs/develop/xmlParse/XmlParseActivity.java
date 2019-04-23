@@ -1,7 +1,7 @@
 package com.example.harry.customandroid.tabs.develop.xmlParse;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;

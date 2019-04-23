@@ -1,7 +1,7 @@
 package com.example.harry.customandroid.tabs.develop.timeline;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.harry.customandroid.R;
 import com.example.harry.customandroid.base.BaseActivity;
