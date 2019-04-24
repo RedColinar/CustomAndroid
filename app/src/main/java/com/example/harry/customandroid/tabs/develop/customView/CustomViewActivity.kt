@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.custom_toolbar.*
 
 class CustomViewActivity : BaseActivity() {
 
+    private var toOn = false
     override fun getLayoutId(): Int {
         return R.layout.activity_custom_view
     }
@@ -20,6 +21,11 @@ class CustomViewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        bt_switch.setOnClickListener {
+            bt_switch.switch(toOn)
+            toOn = !toOn
+        }
 
         geometric_transfer_view.sideRotate = -45f
         geometric_transfer_view.sideDegree = 150f
