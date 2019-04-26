@@ -39,7 +39,7 @@ class SwitchButton2 @JvmOverloads constructor(
     private val offColor = Color.parseColor("#FFFFFF")
     private val borderColor = Color.parseColor("#EEEEEE")
 
-    private val switchOval: SwitchOval = SwitchOval(context)
+    private val switchOval = SwitchOval(context)
     private val objectAnimator = getSwitchAnimator()
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -101,7 +101,7 @@ class SwitchButton2 @JvmOverloads constructor(
         init {
             elevation = dp2px(5)
             val ovalShape = OvalShape()
-            ovalShape.resize(dp2px(18), dp2px(18))
+            ovalShape.resize(2 * radius, 2 * radius)
             background = ShapeDrawable(ovalShape)
         }
 
