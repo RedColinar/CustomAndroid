@@ -49,10 +49,10 @@ class SwitchButton2 @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        switchOval.measure(widthMeasureSpec, heightMeasureSpec)
         setMeasuredDimension(
-            MeasureSpec.makeMeasureSpec((mWidth).toInt(), MeasureSpec.EXACTLY),
-            MeasureSpec.makeMeasureSpec((mHeight).toInt(), MeasureSpec.EXACTLY)
+            MeasureSpec.makeMeasureSpec(mWidth.toInt(), MeasureSpec.EXACTLY),
+            MeasureSpec.makeMeasureSpec(mHeight.toInt(), MeasureSpec.EXACTLY)
         )
     }
 
@@ -107,8 +107,8 @@ class SwitchButton2 @JvmOverloads constructor(
 
         override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
             setMeasuredDimension(
-                MeasureSpec.makeMeasureSpec(radius.toInt(), MeasureSpec.EXACTLY),
-                MeasureSpec.makeMeasureSpec(radius.toInt(), MeasureSpec.EXACTLY)
+                MeasureSpec.makeMeasureSpec(2 * radius.toInt(), MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec(2 * radius.toInt(), MeasureSpec.EXACTLY)
             )
         }
 
