@@ -6,7 +6,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Paint.ANTI_ALIAS_FLAG
-import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import com.example.harry.customandroid.utils.dp2px
@@ -24,42 +23,21 @@ class SwitchButton @JvmOverloads constructor(
     private val radius = dp2px(9)
     private val startCenter = dp2px(36)
     private val endCenter = dp2px(9)
-    private val ovalRect = RectF()
-    private val innerOvalRect = RectF()
 
     private val paint = Paint(ANTI_ALIAS_FLAG)
-    private val innerPaint = Paint(ANTI_ALIAS_FLAG)
 
     private var isOn = true
     private val onColor = Color.parseColor("#0F8CFF")
     private val offColor = Color.parseColor("#FFFFFF")
     private val borderColor = Color.parseColor("#EEEEEE")
-    private var switchFraction = 0f
+    private var switchFraction = 1f
         set(value) {
             field = value
-            ovalRect.set(
-                startCenter + (endCenter - startCenter) * switchFraction - radius,
-                height / 2 - radius,
-                startCenter + (endCenter - startCenter) * switchFraction + radius,
-                height / 2 + radius
-            )
-            innerOvalRect.set(
-                startCenter + (endCenter - startCenter) * switchFraction - radius * switchFraction,
-                height / 2 - radius * switchFraction,
-                startCenter + (endCenter - startCenter) * switchFraction + radius * switchFraction,
-                height / 2 + radius * switchFraction
-            )
             invalidate()
         }
 
     init {
         paint.style = Paint.Style.FILL
-        ovalRect.set(
-            startCenter - radius,
-            height / 2 - radius,
-            startCenter + radius,
-            height / 2 + radius
-        )
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -80,15 +58,14 @@ class SwitchButton @JvmOverloads constructor(
 
         paint.color = onColor
         paint.strokeWidth = 1f
-        canvas?.drawArc(ovalRect, 0f, 360f, false, paint)
+        canvas?.drawCircle(endCenter + (startCenter - endCenter) * switchFraction, height / 2, radius, paint)
 
         paint.color = offColor
-        canvas?.drawArc(innerOvalRect, 0f, 360f, false, paint)
+        canvas?.drawCircle(endCenter + (startCenter - endCenter) * switchFraction, height / 2, radius * (1 - switchFraction), paint)
     }
 
     @Synchronized fun switch(toOn: Boolean) {
         val objectAnimator = getSwitchAnimator()
-        if (toOn == isOn) return
         if (toOn) {
             objectAnimator.reverse()
         } else {
@@ -98,7 +75,7 @@ class SwitchButton @JvmOverloads constructor(
     }
 
     private fun getSwitchAnimator(): ObjectAnimator {
-        val objectAnimator = ObjectAnimator.ofFloat(this@SwitchButton, "switchFraction", 0f, 1f)
+        val objectAnimator = ObjectAnimator.ofFloat(this@SwitchButton, "switchFraction", 1f, 0f)
         objectAnimator.duration = 300
         return objectAnimator
     }

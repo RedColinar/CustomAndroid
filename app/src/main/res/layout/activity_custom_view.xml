@@ -23,6 +23,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <com.example.harry.customandroid.tabs.develop.customView.SwitchButton2
+                android:id="@+id/bt_switch2"
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <com.example.harry.customandroid.tabs.develop.customView.MaterialEditText
                 android:id="@+id/edit_text"
                 android:hint="hahahha"

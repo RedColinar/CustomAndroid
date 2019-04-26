@@ -5,12 +5,15 @@ import android.animation.ObjectAnimator
 import android.os.Bundle
 import com.example.harry.customandroid.R
 import com.example.harry.customandroid.base.BaseActivity
+import com.example.harry.customandroid.base.throttleClick
 import kotlinx.android.synthetic.main.activity_custom_view.*
 import kotlinx.android.synthetic.main.custom_toolbar.*
 
 class CustomViewActivity : BaseActivity() {
 
-    private var toOn = false
+    private var isOn = true
+    private var isOn2 = true
+
     override fun getLayoutId(): Int {
         return R.layout.activity_custom_view
     }
@@ -23,8 +26,12 @@ class CustomViewActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         bt_switch.setOnClickListener {
-            bt_switch.switch(toOn)
-            toOn = !toOn
+            bt_switch.switch(!isOn)
+            isOn = !isOn
+        }
+        bt_switch2.throttleClick {
+            bt_switch2.switch(!isOn2)
+            isOn2 = !isOn2
         }
 
         geometric_transfer_view.sideRotate = -45f
