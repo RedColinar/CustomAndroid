@@ -29,6 +29,6 @@
     <string name="calendar">系统日历</string>
     <string name="custom_layout_title">自定义layout</string>
     <string name="coordinator_layout_title">coordinator布局</string>
-
+    <string name="scalable_image_title">图片手势放大</string>
 
 </resources>

@@ -64,6 +64,7 @@
         <activity android:name=".tabs.develop.calendar.CalendarActivity" />
         <activity android:name=".tabs.develop.tagViewLayout.CustomLayoutActivity" />
         <activity android:name=".tabs.develop.coorinatorLayout.CoordinatorLayoutActivity" />
+        <activity android:name=".tabs.develop.scalableImageView.ScalableActivity" />
 
         <service android:name=".tabs.develop.service.UploadService" />
     </application>

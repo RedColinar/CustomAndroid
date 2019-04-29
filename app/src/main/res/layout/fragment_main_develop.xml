@@ -138,7 +138,9 @@
                 android:drawableTop="@drawable/ic_widget_expand"/>
 
             <Button
+                android:id="@+id/main_develop_scalable_image"
                 style="@style/main_widget_button"
+                android:text="@string/scalable_image_title"
                 android:drawableTop="@drawable/ic_widget_expand" />
 
             <Button

@@ -16,6 +16,7 @@ import com.example.harry.customandroid.tabs.develop.dagger.DaggerActivity;
 import com.example.harry.customandroid.tabs.develop.greendao.GreenDaoActivity;
 import com.example.harry.customandroid.tabs.develop.pictureToAscii.PictureToAsciiActivity;
 import com.example.harry.customandroid.tabs.develop.ping.PingActivity;
+import com.example.harry.customandroid.tabs.develop.scalableImageView.ScalableActivity;
 import com.example.harry.customandroid.tabs.develop.service.ServiceDemoActivity;
 import com.example.harry.customandroid.tabs.develop.tagViewLayout.CustomLayoutActivity;
 import com.example.harry.customandroid.tabs.develop.tagViewLayout.TagViewLayoutActivity;
@@ -24,7 +25,7 @@ import com.example.harry.customandroid.tabs.develop.wave.WaveActivity;
 import com.example.harry.customandroid.tabs.develop.xmlParse.XmlParseActivity;
 
 public class DevelopFragment extends BaseFragment implements View.OnClickListener {
-    public final SparseArray<Class<?>> activities = new SparseArray<>();
+    private final SparseArray<Class<?>> activities = new SparseArray<>();
 
     {
         activities.put(R.id.main_develop_alarm, AlarmActivity.class);
@@ -44,6 +45,7 @@ public class DevelopFragment extends BaseFragment implements View.OnClickListene
         activities.put(R.id.main_develop_calendar, CalendarActivity.class);
         activities.put(R.id.main_develop_coordinator, CoordinatorLayoutActivity.class);
         activities.put(R.id.main_develop_tag_layout, CustomLayoutActivity.class);
+        activities.put(R.id.main_develop_scalable_image, ScalableActivity.class);
     }
 
     @Override
